@@ -9,6 +9,10 @@ nav li  {
 .dropdownStyle  {
     cursor: pointer;
 }
+nav li:hover, a:hover, span:hover {
+    color: #007bff !important;
+    background-color: white !important;
+}
 
 .dropdown {
     position: relative;
