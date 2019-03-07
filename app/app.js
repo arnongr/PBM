@@ -3,8 +3,8 @@ var app = angular.module("PBM", ["ngRoute"]);
 app.config(function ($routeProvider) {
 
     $routeProvider.when("/", {
-        templateUrl: "app/landing.html"
-    })
+        templateUrl: "app/landing/landing.html"
+    // })
     // .when("/actors", {
     //     templateUrl: "Actors Gallery/actors.html",
     //     controller: "actorsCtrl"
@@ -15,9 +15,9 @@ app.config(function ($routeProvider) {
     //     templateUrl: "Movie Details/movieDetails.html",
     //     controller: "movieDetailsCtrl"
 
-    // }).otherwise({
-    //     redirectTo: "/"
-    // });
+    }).otherwise({
+        redirectTo: "/"
+    });
 
 })
 
