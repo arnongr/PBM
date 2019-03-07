@@ -1,3 +1,7 @@
 .myNavbar   {
     background-color: white;
 }
+
+.dropdownStyle  {
+    cursor: pointer;
+}
