@@ -1,6 +1,11 @@
 .myNavbar   {
     background-color: white;
 }
+
+.logo   {
+    height: 35px;
+}
+
 nav li  {
     margin-right: 20px;
     font-weight: 450;
@@ -41,3 +46,15 @@ nav li:hover, a:hover, span:hover {
     padding-left: 25px;
     padding-right: 25px;
 }
+.getStarted {
+    width: 400px;
+}
+/* .positioning    {
+    float: right;
+    top: 0;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  } */

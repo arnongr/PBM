@@ -4,11 +4,11 @@ app.config(function ($routeProvider) {
 
     $routeProvider.when("/", {
         templateUrl: "app/landing/landing.html"
+    }).when("/get-started", {
+        templateUrl: "app/getStarted/get-started.html",
+        controller: "getStartedCtrl"
     // })
-    // .when("/actors", {
-    //     templateUrl: "Actors Gallery/actors.html",
-    //     controller: "actorsCtrl"
-    // }).when("/movies", {
+    // .when("/movies", {
     //     templateUrl: "Movies Gallery/movieCard.html",
     //     controller: "movieCtrl"
     // }).when("/movies/:movieId", {
