@@ -64,6 +64,9 @@ nav li:hover, a:hover, span:hover {
       width: 250px;
       height: 100vh;
   }
-  .mySideMenu   {
-      margin: 500 0 0 30;
+  .mySideMenu  {
+      padding: 100px 0 0 50px;
+  }
+  .mySideMenu > a {
+    text-decoration: none;
   }

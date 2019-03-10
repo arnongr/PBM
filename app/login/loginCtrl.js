@@ -3,23 +3,18 @@ app.controller("loginCtrl", function ($scope, $location, $log, userSrv) {
 
 
     //Login:
-    $scope.invalidLogin = false;
-    $scope.email = "arnon.work@gmail.com";
-    $scope.pwd = "123";
+// Pass the username and password to logIn function
+Parse.User.logIn("newUserName","#Password123").then((user) => {
+    // Do stuff after successful login
+    if (typeof document !== 'undefined') document.write(`Logged in user: ${JSON.stringify(user)}`);
+    console.log('Logged in user', user);
+  }).catch(error => {
+    if (typeof document !== 'undefined') document.write(`Error while logging in user: ${JSON.stringify(error)}`);
+    console.error('Error while logging in user', error);
+  })
 
 
-
-    $scope.login = function () {
-
-        userSrv.login($scope.email, $scope.pwd).then(function (activeUser) {
-            $location.path("/login");
-        }, function () {
-            $scope.invalidLogin = true;
-        });
-
-    }
-
-    //redirect to 'Workspace' page:
+    //redirect to 'Workspace' page after login:
     $scope.login = function () {
 
         userSrv.login($scope.email, $scope.pwd).then(function (activeUser) {
@@ -29,6 +24,7 @@ app.controller("loginCtrl", function ($scope, $location, $log, userSrv) {
         });
 
     }
+
 
 
 })

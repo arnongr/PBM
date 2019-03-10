@@ -16,12 +16,9 @@ app.controller("getStartedCtrl", function ($scope, $location, $log, userSrv) {
 
 
     //Login
-    $scope.invalidLogin = false;
-    $scope.email = "arnon.work@gmail.com";
-    $scope.pwd = "123";
-
-
-
+    // $scope.invalidLogin = false;
+    // $scope.email = "arnon.work@gmail.com";
+    // $scope.pwd = "123";
 
 
 })

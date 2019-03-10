@@ -7,6 +7,7 @@ app.config(function ($routeProvider) {
         controller: "getStartedCtrl",
     }).when("/getStarted", {
         templateUrl: "app/getStarted/get-started.html",
+        controller: "createUserCtrl"
     }).when("/login", {
         templateUrl: "app/login/login.html",
         controller: "loginCtrl",
