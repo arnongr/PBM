@@ -58,3 +58,12 @@ nav li:hover, a:hover, span:hover {
     clear: both;
     display: table;
   } */
+
+  .myWorkSpaceMenu  {
+      background-color: #EEEEEE;
+      width: 250px;
+      height: 100vh;
+  }
+  .mySideMenu   {
+      margin: 500 0 0 30;
+  }
