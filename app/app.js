@@ -4,7 +4,7 @@ app.config(function ($routeProvider) {
 
     $routeProvider.when("/", {
         templateUrl: "app/landing/landing.html"
-    }).when("/get-started", {
+    }).when("/getStarted", {
         templateUrl: "app/getStarted/get-started.html",
         controller: "getStartedCtrl"
     // })
