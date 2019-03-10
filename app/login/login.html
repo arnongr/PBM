@@ -1,18 +1,22 @@
-<div class="container login mt-5">
-    <h1>Welcome back!</h1>
-
+<div>
+    <img class="logo" style="margin: 20px 0 100px 20px;" src="/assets/images/logo.png" alt="">
+</div>
+<div class="container mt-5 text-center">
+    <h1 class="display-4">Welcome back!</h1>
+</div>
+<div class="container getStarted mt-5">
     <div class="alert alert-danger" role="alert" ng-show="invalidLogin">
         <strong>Invalid Login</strong> incorrect email or password
     </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" ng-model="email">
-        </div>
-        <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd" ng-model="pwd">
-        </div>
-        <button type="button" class="btn btn-success btn-block" ng-click="login()">Log In</button>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" ng-model="email">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" ng-model="pwd">
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary btn-block myButtonStyle" ng-click="login()">Log In</button>
     </form>
-
 </div>
