@@ -8,7 +8,8 @@ app.config(function ($routeProvider) {
     }).when("/getStarted", {
         templateUrl: "app/getStarted/get-started.html",
     }).when("/login", {
-        templateUrl: "app/login/login.html"
+        templateUrl: "app/login/login.html",
+        controller: "loginCtrl",
     }).when("/workSpace", {
         templateUrl: "app/work-space/work-space.html"
 

@@ -1,18 +1,5 @@
 
-app.controller("getStartedCtrl", function ($scope, $location, $log, userSrv) {
-
-    //Redirect to 'Get Started' page
-    $scope.getStarted = function () {
-        $location.path("/getStarted");
-    }
-
-    //Redirect to 'Work Space' page
-
-
-    //Redirect to 'Login' page
-    $scope.redirectToLogin = function () {
-        $location.path("/login");
-    }
+app.controller("loginCtrl", function ($scope, $location, $log, userSrv) {
 
 
     //Login
