@@ -2,7 +2,7 @@
 app.controller("loginCtrl", function ($scope, $location, $log, userSrv) {
 
 
-    //Login
+    //Login:
     $scope.invalidLogin = false;
     $scope.email = "arnon.work@gmail.com";
     $scope.pwd = "123";
@@ -18,5 +18,17 @@ app.controller("loginCtrl", function ($scope, $location, $log, userSrv) {
         });
 
     }
+
+    //redirect to 'Workspace' page:
+    $scope.login = function () {
+
+        userSrv.login($scope.email, $scope.pwd).then(function (activeUser) {
+            $location.path("/workSpace");
+        }, function () {
+            $scope.invalidLogin = true;
+        });
+
+    }
+
 
 })

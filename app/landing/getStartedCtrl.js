@@ -22,14 +22,6 @@ app.controller("getStartedCtrl", function ($scope, $location, $log, userSrv) {
 
 
 
-    $scope.login = function () {
 
-        userSrv.login($scope.email, $scope.pwd).then(function (activeUser) {
-            $location.path("/login");
-        }, function () {
-            $scope.invalidLogin = true;
-        });
-
-    }
 
 })
