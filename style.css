@@ -65,8 +65,22 @@ nav li:hover, a:hover, span:hover {
       height: 100vh;
   }
   .mySideMenu  {
-      padding: 100px 0 0 50px;
+      padding: 100px 0 0 20px;
+      list-style-type: none;
+
   }
-  .mySideMenu > a {
+  ul.mySideMenu > li > a {
     text-decoration: none;
+    color: black;
+    font-size: 150%;
   }
+  .myProjectFloat   {
+    float: left;
+    margin: 100px 0 0 300px;
+    top: 0;
+ }
+ .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }     

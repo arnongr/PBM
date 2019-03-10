@@ -1,5 +1,5 @@
 
-app.controller("createUserCtrl", function ($scope, $location, $log, userSrv) {
+app.controller("createUserCtrl", function ($scope, $location, $log) {
 
  
     //New user:
