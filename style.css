@@ -110,8 +110,13 @@ ul.mySideMenu > li > a {
     position: absolute;
     top: 100px;
     left: 300px;
+    /* width: 100%; */
 }
-span{
-    font-style: italic;
-    font-size: 80%;
+th, td  {
+    padding-right: 60px !important;
+}
+th  {
+    border-top-style: none !important;
+    font-weight: normal !important;
+    color: dodgerblue;
 }
