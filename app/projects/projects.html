@@ -3,7 +3,20 @@
 <div class="myInnerPagePosition">
     <h3>Projects</h3>
     <div>
-        <table class="table">
+        <table class="table table-hover">
+            <tr>
+                <!--<th ng-click="orderByProp($event)">Brand</th>-->
+                <th></th>
+                <th ng-click="orderByProp('model')">Countdown <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'model', 'fa-sort-down' : orderProp === 'model' && !reverseOrder, 'fa-sort-up' : orderProp === 'model' && reverseOrder}"></i>
+                </th>
+                <th ng-click="orderByProp('year')">Budget <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'year', 'fa-sort-down' : orderProp === 'year' && !reverseOrder, 'fa-sort-up' : orderProp === 'year' && reverseOrder}"></i>
+                </th>
+                <th ng-click="orderByProp('km')">Expense <i class="fas"
+                        ng-class="{'fa-sort' : orderProp != 'km', 'fa-sort-down' : orderProp === 'km' && !reverseOrder, 'fa-sort-up' : orderProp === 'km' && reverseOrder}"></i>
+                </th>
+            </tr>
             <tr ng-repeat="project in projects">
                 <td>{{project.projectName}}</td>
                 <td>{{project.projectCountDown}}</td>

@@ -111,3 +111,7 @@ ul.mySideMenu > li > a {
     top: 100px;
     left: 300px;
 }
+span{
+    font-style: italic;
+    font-size: 80%;
+}
