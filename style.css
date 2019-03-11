@@ -73,14 +73,31 @@ nav li:hover, a:hover, span:hover {
     text-decoration: none;
     color: black;
     font-size: 150%;
+    border-bottom-style: solid;
+    border-bottom-color: #E0E0E0;
+    border-bottom-width: 1px;
   }
-  .myProjectFloat   {
-    float: left;
-    margin: 100px 0 0 300px;
-    top: 0;
+  .myInnerPagePosition   {
+    position: absolute;
+    top: 100px;
+    left: 300px;
  }
  .clearfix::after {
     content: "";
     clear: both;
     display: table;
-  }     
+  }
+  .myWorkspaceNav   {
+    position: relative;
+    background-color: #F7F6FF;
+    height: 60px;
+    border-bottom-style: solid;
+    border-bottom-color: #E0E0E0;
+    border-bottom-width: 1px;
+    position: fixed;
+    top: 0;
+    left: 250px;
+    z-index: 1;
+    width: 100%;
+    margin-bottom: 200px;
+  } 
