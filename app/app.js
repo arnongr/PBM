@@ -16,6 +16,8 @@ app.config(function ($routeProvider) {
     }).when("/projects", {
         templateUrl: "app/projects/projects.html",
         controller: "projectsCtrl"
+    }).when("/projectView", {
+        templateUrl: "app/project_view/projectView.html",
 
 
     }).otherwise({
