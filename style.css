@@ -78,36 +78,36 @@ nav li:hover, a:hover, span:hover {
 
 }
 ul.mySideMenu > li > a {
-text-decoration: none;
-color: black;
-font-size: 120%;
-border-bottom-style: solid;
-border-bottom-color: #E0E0E0;
-border-bottom-width: 1px;
+    text-decoration: none;
+    color: black;
+    font-size: 120%;
+    border-bottom-style: solid;
+    border-bottom-color: #E0E0E0;
+    border-bottom-width: 1px;
 }
 
 .clearfix::after {
-content: "";
-clear: both;
-display: table;
+    content: "";
+    clear: both;
+    display: table;
 }
 .myWorkspaceNav   {
-position: relative;
-background-color: #F7F6FF;
-height: 60px;
-border-bottom-style: solid;
-border-bottom-color: #E0E0E0;
-border-bottom-width: 1px;
-position: fixed;
-top: 0;
-left: 250px;
-z-index: 1;
-width: 100%;
-margin-bottom: 200px;
+    position: relative;
+    background-color: #F7F6FF;
+    height: 60px;
+    border-bottom-style: solid;
+    border-bottom-color: #E0E0E0;
+    border-bottom-width: 1px;
+    position: fixed;
+    top: 0;
+    left: 250px;
+    z-index: 1;
+    width: 100%;
+    margin-bottom: 200px;
 }
 
 .myInnerPagePosition   {
-position: absolute;
-top: 100px;
-left: 300px;
+    position: absolute;
+    top: 100px;
+    left: 300px;
 }
