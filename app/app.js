@@ -10,11 +10,12 @@ app.config(function ($routeProvider) {
         controller: "createUserCtrl"
     }).when("/login", {
         templateUrl: "app/login/login.html",
-        controller: "loginCtrl",
+        controller: "loginCtrl"
     // }).when("/workSpace", {
     //     templateUrl: "app/workspace/workspace.html"
     }).when("/projects", {
-        templateUrl: "app/projects/projects.html"
+        templateUrl: "app/projects/projects.html",
+        controller: "projectsCtrl"
 
 
     }).otherwise({
