@@ -1,9 +1,12 @@
 
-app.controller("projectViewCtrl", function ($scope, $location, $log) {
+app.controller("projectViewCtrl", function ($scope, $location, $log, projectViewSrv) {
 
- $scope.test = 123;
-
-
-
-
+  // Loading the items
+  $scope.items = [];
+  projectViewSrv.getItems().then(function(items) {
+    $scope.items = items;
+  }, function(err) {
+    $log.error(err);
+  })
 })
+

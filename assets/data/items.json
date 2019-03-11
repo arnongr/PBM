@@ -1,0 +1,26 @@
+[
+    {
+      "itemId": "001",
+      "itemName": "Item 1",
+      "itemCategory": "Equipment",
+      "itemExpense": "$5,000"
+    },
+    {
+      "itemId": "002",
+      "itemName": "Item 2",
+      "itemCategory": "Human resources",
+      "itemExpense": "$7,000"
+    },
+    {
+      "itemId": "003",
+      "itemName": "Item 3",
+      "itemCategory": "Marketing campaign",
+      "itemExpense": "$10,000"
+    },
+    {
+      "itemId": "004",
+      "itemName": "Item 4",
+      "itemCategory": "Sub-contractor (website)",
+      "itemExpense": "$15,000"
+    }
+  ]

@@ -144,6 +144,7 @@ th  {
       padding: 1px !important;
   }
   .myProjectView-table input  {
+      font-size: 90%;
       background-color: #EEEEEE;
       border-radius: 0 !important;
       border-style: none;

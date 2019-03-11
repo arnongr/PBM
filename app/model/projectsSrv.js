@@ -3,7 +3,7 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     var projects = [];
   
     // Project constructor
-    function Project(projectIdOrObject, projectName, projectCountDown, projectBudget,projectExpense) {
+    function Project(projectIdOrObject, projectName, projectCountDown, projectBudget, projectExpense) {
       
       if (typeof projectIdOrObject === "object") {
         this.projectId = projectIdOrObject.projectId;

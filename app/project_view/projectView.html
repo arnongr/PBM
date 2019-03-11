@@ -14,10 +14,10 @@
                     <th></th>
                 </tr>
             </thead>
-            <tr>
-                <td><input class="form-control" type="text" placeholder="{{test}}"></td>
-                <td><input class="form-control" type="select" placeholder="{{test}}"></td>
-                <td><input class="form-control" type="number" placeholder="{{test}}"></td>
+            <tr ng-repeat="item in items">
+                <td><input class="form-control" type="text" placeholder="{{item.itemName}}"></td>
+                <td><input class="form-control" type="select" placeholder="{{item.itemCategory}}"></td>
+                <td><input class="form-control" type="number" placeholder="{{item.itemExpense}}"></td>
                 <td></td>
             </tr>
         </table>
