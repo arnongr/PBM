@@ -1,10 +1,32 @@
-app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv) {
+app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, projectViewSrv) {
 
-  // Loading the projects
+  // Loading all projects:
   $scope.projects = [];
-  projectsSrv.getProjects().then(function(projects) {
+  projectsSrv.getProjects().then(function (projects) {
     $scope.projects = projects;
-  }, function(err) {
+  }, function (err) {
     $log.error(err);
   })
+
+
+//Loading selected project:
+$scope.openProject = function (project) {
+    $scope.items = [];
+    projectViewSrv.items = [];
+    projectViewSrv.getItems().then(function (items) {
+      $scope.items = items;
+    }, function (err) {
+      $log.error(err);
+    })
+  
+    for (var i = 0; i < $scope.items.length; i++)  {
+      if  (items[i][key] === project.projectId){
+        return items[i];
+    }
+  $location.path("projectView/" + $scope.items[i]);
+  }
+
+}
 })
+
+
