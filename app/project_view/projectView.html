@@ -17,10 +17,20 @@
             </thead>
             <tr ng-repeat="item in items">
                 <td><input class="form-control" type="text" placeholder="{{item.itemName}}"></td>
-                <td><input style="text-align: center;" class="form-control" type="text" placeholder="{{item.itemOwner}}"></td>
+                <td><input class="form-control" type="text" placeholder="{{item.itemOwner}}"
+                        style="text-align: center;"></td>
                 <td><input class="form-control" type="select" placeholder="{{item.itemCategory}}"></td>
                 <td><input class="form-control" type="number" placeholder="{{item.itemExpense}}"></td>
                 <td></td>
+            </tr>
+            <tr class="myAddNewRow">
+                <form name="newLine">
+                    <td><input  name="newLine" ng-model="item.itemName" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control" type="text" placeholder="+ Add new Item"></td>
+                    <td><input class="form-control" type="text"></td>
+                    <td><input class="form-control" type="text"></td>
+                    <td><input class="form-control" type="text"></td>
+                    <td></td>
+                </form>
             </tr>
         </table>
     </div>

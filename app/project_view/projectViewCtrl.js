@@ -8,5 +8,14 @@ app.controller("projectViewCtrl", function ($scope, $location, $log, projectView
   }, function(err) {
     $log.error(err);
   })
+
+  $scope.item = { itemName: 'Description', data: 'Data' };
+
+  $scope.cancel = function(e) {
+    if (e.keyCode === 27) {
+      $scope.newLine.itemName.$rollbackViewValue();
+    }
+  };
+
 })
 
