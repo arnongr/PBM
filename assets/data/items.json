@@ -1,26 +1,30 @@
 [
     {
       "itemId": "001",
-      "itemName": "Item 1",
+      "itemOwner": "Dan",
+      "itemName": "PC",
       "itemCategory": "Equipment",
-      "itemExpense": "$5,000"
+      "itemExpense": "$3,000"
     },
     {
       "itemId": "002",
-      "itemName": "Item 2",
-      "itemCategory": "Human resources",
-      "itemExpense": "$7,000"
+      "itemOwner": "Lucy",
+      "itemName": "SW development",
+      "itemCategory": "Man hours",
+      "itemExpense": "$20,000"
     },
     {
       "itemId": "003",
-      "itemName": "Item 3",
+      "itemOwner": "Guy",
+      "itemName": "Trade show",
       "itemCategory": "Marketing campaign",
       "itemExpense": "$10,000"
     },
     {
       "itemId": "004",
-      "itemName": "Item 4",
-      "itemCategory": "Sub-contractor (website)",
+      "itemOwner": "John",
+      "itemName": "New website",
+      "itemCategory": "Sub-contractor",
       "itemExpense": "$15,000"
     }
   ]

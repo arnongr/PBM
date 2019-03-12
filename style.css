@@ -112,14 +112,7 @@ ul.mySideMenu > li > a {
     left: 330px;
     /* width: 100%; */
 }
-th, td  {
-    padding-right: 60px !important;
-}
-th  {
-    border-top-style: none !important;
-    font-weight: normal !important;
-    color: dodgerblue;
-}
+
   
   .mySearch {
       width: 300px;
@@ -140,21 +133,33 @@ th  {
     color: #aaa;
   }
 
-  .myProjectView-table th,td {
+  .myProjects-table td  {
+    padding-right: 60px !important;
+}
+  .myProjects-table  th  {
+    border-top-style: none !important;
+    font-weight: normal !important;
+    color: dodgerblue;
+}
+
+  /* table.myItems-table th, td {
       padding: 1px !important;
-  }
-  .myProjectView-table input  {
+  } */
+  .myItems-table input  {
       font-size: 90%;
-      background-color: #EEEEEE;
+      background-color: rgb(240, 240, 240);
       border-radius: 0 !important;
       border-style: none;
       border-bottom: 1px solid rgb(202, 202, 202) !important;
   }
   
-  /* Removing borders from table  */
-  .table thead th   {
+  /* Removing borders from Items table  */
+  .myItems-table  th   {
     border-style: none !important;
+    font-weight: normal !important;
+    color: dodgerblue;
   }
-  .table td, .table th  {
+  .myItems-table  td  {
     border-style: none !important;
+    padding: 0 0.005em 0.0625em 0;
   }

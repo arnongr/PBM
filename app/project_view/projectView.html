@@ -4,11 +4,12 @@
 
 <div class="myInnerPagePosition">
     <h3 style="margin-bottom: 50px;">Project 1</h3>
-    <div>
-        <table class="table myProjectView-table">
+    <div class="myItems-table">
+        <table class="table">
             <thead>
                 <tr>
                     <th>Item</th>
+                    <th style="text-align: center;">Owner</th>
                     <th>Category</th>
                     <th>Expense</th>
                     <th></th>
@@ -16,6 +17,7 @@
             </thead>
             <tr ng-repeat="item in items">
                 <td><input class="form-control" type="text" placeholder="{{item.itemName}}"></td>
+                <td><input style="text-align: center;" class="form-control" type="text" placeholder="{{item.itemOwner}}"></td>
                 <td><input class="form-control" type="select" placeholder="{{item.itemCategory}}"></td>
                 <td><input class="form-control" type="number" placeholder="{{item.itemExpense}}"></td>
                 <td></td>

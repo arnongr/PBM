@@ -3,16 +3,18 @@ app.factory("projectViewSrv", function ($http, $q, $log) {
     var items = [];
   
     // Items constructor
-    function Item(itemIdOrObject, itemName, itemCategory, itemExpense) {
+    function Item(itemIdOrObject, itemName, itemOwner, itemCategory, itemExpense) {
       
       if (typeof itemIdOrObject === "object") {
         this.itemId = itemIdOrObject.itemId;
         this.itemName = itemIdOrObject.itemName;
+        this.itemOwner = itemIdOrObject.itemOwner;
         this.itemCategory = itemIdOrObject.itemCategory;
         this.itemExpense = itemIdOrObject.itemExpense;
       } else {
         this.itemId = itemIdOrObject;
         this.itemName = itemName;
+        this.itemOwner = itemOwner;
         this.itemCategory = itemCategory;
         this.itemExpense = itemExpense;
       }
