@@ -21,7 +21,7 @@ $scope.openProject = function (project) {
   
     for (var i = 0; i < $scope.items.length; i++)  {
       if  (items[i][key] === project.projectId){
-        return items[i];
+        push.items[i];
     }
   $location.path("projectView/" + $scope.items[i]);
   }
