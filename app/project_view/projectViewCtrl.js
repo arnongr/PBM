@@ -1,5 +1,5 @@
 
-app.controller("projectViewCtrl", function ($scope, $location, $log, projectViewSrv) {
+app.controller("projectViewCtrl", function ($scope, $location, $log, projectViewSrv, projectsSrv) {
 
   // Loading the items
   $scope.items = [];
@@ -17,5 +17,15 @@ app.controller("projectViewCtrl", function ($scope, $location, $log, projectView
     }
   };
 
+  // Adding new Project
+  $scope.projectName;
+
+  $scope.newProject = function() {
+    // call service newProject
+    projectsSrv.newProject($scope.projectName).then(function() {
+    }, function(err) {
+        $log.error(err);
+    })
+};
 })
 

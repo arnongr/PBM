@@ -44,11 +44,34 @@ app.factory("projectsSrv", function ($http, $q, $log) {
       return async.promise;
     }
         
-   
+         // Adding new project:
+         function newProject(projectName) {
+          var async = $q.defer();
+  
+          const ProjectParse = Parse.Object.extend('Project');
+          const newProject = new ProjectParse();
+          
+          newProject.set('projectName', projectName);
+          
+          newProject.save().then(
+            function(result) {
+              $log.info('Project created', result);
+              var newProject = new Project(result);
+              async.resolve(newProject);
+            },
+            function(error) {
+              $log.error('Error while creating Project: ', error);
+              async.reject(error);
+            }
+          );        
+  
+          return async.promise;
+      }
     
     return {
         projects: projects,
-        getProjects: getProjects
+        getProjects: getProjects,
+        newProject: newProject
 
     }
     

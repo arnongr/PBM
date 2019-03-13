@@ -9,8 +9,13 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
   })
 
 
-//Loading selected project:
-$scope.openProject = function (project) {
+  // Loading 'New Project' page:
+  $scope.newProject = function () {
+    $location.path("projectView/");
+  }
+
+  //Loading selected project:
+  $scope.openProject = function (project) {
     $scope.items = [];
     projectViewSrv.items = [];
     projectViewSrv.getItems().then(function (items) {
@@ -18,15 +23,15 @@ $scope.openProject = function (project) {
     }, function (err) {
       $log.error(err);
     })
-  
-    for (var i = 0; i < $scope.items.length; i++)  {
-      if  (items[i][key] === project.projectId){
-        push.items[i];
-    }
-  $location.path("projectView/" + $scope.items[i]);
-  }
 
-}
+    for (var i = 0; i < $scope.items.length; i++) {
+      if (items[i][key] === project.projectId) {
+        push.items[i];
+      }
+      $location.path("projectView/" + $scope.items[i]);
+    }
+
+  }
 })
 
 

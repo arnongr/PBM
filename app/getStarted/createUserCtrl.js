@@ -11,12 +11,13 @@ app.controller("createUserCtrl", function ($scope, $location, $log) {
         
         user.signUp().then((user) => {
             // success
-            
+
             console.log('User signed up', user);
         }).catch(error => {
             // error
             console.error('Error while signing up user', error);
         });
+        $location.path("projects");
     };
     
 

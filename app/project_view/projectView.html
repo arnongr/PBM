@@ -4,6 +4,10 @@
 
 <div class="myInnerPagePosition">
     <h3 style="margin-bottom: 50px;">Project 1</h3>
+    <form name="newProjectName">
+        <input name="newProjectName" type="text" placeholder="+ New Project" ng-model="projectName">
+        <button type="submit" ng-click="newProject()">Submit</button>
+    </form>
     <div class="myItems-table">
         <table class="table">
             <thead>

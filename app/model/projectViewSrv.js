@@ -44,11 +44,14 @@ app.factory("projectViewSrv", function ($http, $q, $log) {
       
       
       return async.promise;
+
+
+
     }    
    
     return {
         items: items,
-        getItems: getItems
+        getItems: getItems,
     }
     
   });
