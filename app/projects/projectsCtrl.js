@@ -9,7 +9,6 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
   })
 
   // Adding new project to DB:
-    // Adding new Project
     
     // $scope.projectName;
     var projectName = "New Project";

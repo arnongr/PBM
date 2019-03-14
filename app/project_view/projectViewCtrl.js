@@ -17,11 +17,20 @@ app.controller("projectViewCtrl", function ($scope, $location, $log, projectView
     }
   };
 
-  // Editing projectName:
+  // Updating projectName:
+  // $scope.projectName = "test";
+
+  $scope.cancel = function(e) {
+    if (e.keyCode === 27) {
+      $scope.userForm.projectName.$rollbackViewValue();
+    }
+  };
+
+
   $scope.projectName;
-  $scope.editProjectName = function() {
+  $scope.updateProjectName = function() {
         // call service projectsSrv
-        projectsSrv.editProjectName($scope.projectName).then(function() {
+        projectsSrv.updateProjectName($scope.projectName).then(function() {
         }, function(err) {
             $log.error(err);
         })

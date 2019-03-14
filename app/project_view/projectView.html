@@ -6,17 +6,23 @@
     <h3 style="margin-bottom: 50px;">Project 1</h3>
 
     <div>
-        <form name="editProjectName">
-            <input name="editProjectName" ng-model="projectName" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control"
-                type="text" placeholder="+ Add new Project name">
+        <form name="projectForm">
+            <input name="projectName" ng-model="projectName" ng-model-options="{ updateOn: 'blur' }"
+                ng-keyup="cancel($event)" class="form-control" type="text" placeholder="+ Add new Project name">
+            <input type="text" class="form-control" ng-model="projectName" placeholder="Add new">
+            <button ng-click="updateProjectName()" type="submit" class="btn btn-info">Add</button>
         </form>
+        <pre>projectName = <span ng-bind="projectName"></span></pre>
     </div>
     <div>
+
+    </div>
+    <!-- <div>
         <form name="editProjectBudget">
             <input name="editProjectBudget" ng-model="projectBudget" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control"
                 type="text" placeholder="+ Budget">
         </form>
-    </div>
+    </div> -->
 
     <div class="myItems-table">
         <table class="table">
@@ -34,7 +40,8 @@
                     <input class="form-control" type="text" placeholder="{{item.itemName}}">
                 </td>
                 <td>
-                    <input class="form-control" type="text" placeholder="{{item.itemOwner}}" style="text-align: center;">
+                    <input class="form-control" type="text" placeholder="{{item.itemOwner}}"
+                        style="text-align: center;">
                 </td>
                 <td>
                     <input class="form-control" type="select" placeholder="{{item.itemCategory}}">
@@ -47,8 +54,8 @@
             <tr class="myAddNewRow">
                 <form name="newLine">
                     <td>
-                        <input name="newLine" ng-model="item.itemName" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control"
-                            type="text" placeholder="+ Add new Item">
+                        <input name="newLine" ng-model="item.itemName" ng-model-options="{ updateOn: 'blur' }"
+                            ng-keyup="cancel($event)" class="form-control" type="text" placeholder="+ Add new Item">
                     </td>
                     <td>
                         <input class="form-control" type="text">

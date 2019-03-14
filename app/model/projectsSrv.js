@@ -68,12 +68,13 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     return async.promise;
   }
 
-  // Editing Project Name:
-  function editProjectName(projectName) {
+  // Updating Project Name:
+  function updateProjectName(projectName) {
     var async = $q.defer();
 
-    const MyCustomClass = Parse.Object.extend('Project');
-    const query = new Parse.Query(projectName);
+    const Project = Parse.Object.extend('Project');
+    const query = new Parse.Query(Project);
+
     query.get('xKue915KBG').then((object) => {
       object.set('projectName', projectName);
       object.save().then((response) => {
@@ -120,7 +121,7 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     getProjects: getProjects,
     newProject: newProject,
     projectBudget: projectBudget,
-    editProjectName: editProjectName
+    updateProjectName: updateProjectName
   }
 
 });
