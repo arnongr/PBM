@@ -16,7 +16,6 @@ nav li  {
 }
 nav li:hover, a:hover, span:hover {
     color: #007bff !important;
-    background-color: white !important;
 }
 
 .dropdown {
@@ -61,22 +60,31 @@ nav li:hover, a:hover, span:hover {
     height: 100vh;
 }
 .mySideMenu  {
-    padding: 100px 0 0 20px;
+    padding: 100px 0 0 50px;
     list-style-type: none;
     position: fixed;
+    left: 0;
     top: 0;
     z-index: 1;
 
+}
+
+.my-list-style ,il  {
+    width: 250px;
+    text-align: center;
+    padding-top: 10px;
+}
+.my-border  {
+    border-top-style: solid;
+    border-top-color: #E0E0E0;
+    border-top-width: 1px;    
 }
 ul.mySideMenu > li > a {
     text-decoration: none;
     color: black;
     font-size: 120%;
-    border-bottom-style: solid;
-    border-bottom-color: #E0E0E0;
-    border-bottom-width: 1px;
-}
 
+}
 .clearfix::after {
     content: "";
     clear: both;
@@ -150,5 +158,13 @@ ul.mySideMenu > li > a {
   }
   .myItems-table  td  {
     border-style: none !important;
-    padding: 0 0.05em 0.1em 0;
+    padding: 0 0.05em 0.2em 0;
   }
+  .my-float-right {
+      float: right;
+  }
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

@@ -8,11 +8,24 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
     $log.error(err);
   })
 
+  // Adding new project to DB:
+    // Adding new Project
+    
+    // $scope.projectName;
+    var projectName = "New Project";
+
+    $scope.newProject = function() {
+      // call service newProject
+      projectsSrv.newProject(projectName).then(function() {  // ORIGINAL: projectsSrv.newProject($scope.projectName).then(function() {
+      }, function(err) {
+          $log.error(err);
+      })
+    };
 
   // Loading 'New Project' page:
-  $scope.newProject = function () {
-    $location.path("projectView/");
-  }
+  // $scope.newProject = function () {
+  //   $location.path("projectView/");
+  // }
 
   //Loading selected project:
   $scope.openProject = function (project) {

@@ -1,0 +1,19 @@
+<div class="myWorkspaceNav">
+    test
+</div>
+<div class="myProjectFloat">
+    <project></project>
+</div>
+<p class="line">ss</p>
+
+<div class="myWorkSpaceMenu">
+    <div>
+            <ul class="mySideMenu">
+                <li>
+                    <a href="">Projects</a>
+                </li>
+            </ul>
+        
+
+    </div>
+</div>

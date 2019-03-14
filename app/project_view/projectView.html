@@ -4,11 +4,20 @@
 
 <div class="myInnerPagePosition">
     <h3 style="margin-bottom: 50px;">Project 1</h3>
-    <form name="newProjectName">
-        <input name="newProjectName" type="text" placeholder="+ New Project" ng-model="projectName">
-        <button type="submit" ng-click="newProject()">Submit</button>
-        <input  name="newProjectName" ng-model="projectName" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control" type="text" placeholder="+ Add new Project">
-    </form>
+
+    <div>
+        <form name="editProjectName">
+            <input name="editProjectName" ng-model="projectName" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control"
+                type="text" placeholder="+ Add new Project name">
+        </form>
+    </div>
+    <div>
+        <form name="editProjectBudget">
+            <input name="editProjectBudget" ng-model="projectBudget" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control"
+                type="text" placeholder="+ Budget">
+        </form>
+    </div>
+
     <div class="myItems-table">
         <table class="table">
             <thead>
@@ -21,19 +30,35 @@
                 </tr>
             </thead>
             <tr ng-repeat="item in items">
-                <td><input class="form-control" type="text" placeholder="{{item.itemName}}"></td>
-                <td><input class="form-control" type="text" placeholder="{{item.itemOwner}}"
-                        style="text-align: center;"></td>
-                <td><input class="form-control" type="select" placeholder="{{item.itemCategory}}"></td>
-                <td><input class="form-control" type="number" placeholder="{{item.itemExpense}}"></td>
+                <td>
+                    <input class="form-control" type="text" placeholder="{{item.itemName}}">
+                </td>
+                <td>
+                    <input class="form-control" type="text" placeholder="{{item.itemOwner}}" style="text-align: center;">
+                </td>
+                <td>
+                    <input class="form-control" type="select" placeholder="{{item.itemCategory}}">
+                </td>
+                <td>
+                    <input class="form-control" type="number" placeholder="{{item.itemExpense}}">
+                </td>
                 <td></td>
             </tr>
             <tr class="myAddNewRow">
                 <form name="newLine">
-                    <td><input  name="newLine" ng-model="item.itemName" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control" type="text" placeholder="+ Add new Item"></td>
-                    <td><input class="form-control" type="text"></td>
-                    <td><input class="form-control" type="text"></td>
-                    <td><input class="form-control" type="text"></td>
+                    <td>
+                        <input name="newLine" ng-model="item.itemName" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control"
+                            type="text" placeholder="+ Add new Item">
+                    </td>
+                    <td>
+                        <input class="form-control" type="text">
+                    </td>
+                    <td>
+                        <input class="form-control" type="text">
+                    </td>
+                    <td>
+                        <input class="form-control" type="text">
+                    </td>
                     <td></td>
                 </form>
             </tr>

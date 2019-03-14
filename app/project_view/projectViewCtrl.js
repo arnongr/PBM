@@ -17,15 +17,28 @@ app.controller("projectViewCtrl", function ($scope, $location, $log, projectView
     }
   };
 
-  // Adding new Project
+  // Editing projectName:
   $scope.projectName;
+  $scope.editProjectName = function() {
+        // call service projectsSrv
+        projectsSrv.editProjectName($scope.projectName).then(function() {
+        }, function(err) {
+            $log.error(err);
+        })
+      };
 
-  $scope.newProject = function() {
-    // call service newProject
-    projectsSrv.newProject($scope.projectName).then(function() {
+
+  //Adding budget
+  $scope.projectBudget;
+
+  $scope.editProjectBudget = function() {
+    // call service projectBudget
+    projectsSrv.editProjectBudget($scope.projectBudget).then(function() {
     }, function(err) {
         $log.error(err);
     })
-};
+  };
+
+
 })
 
