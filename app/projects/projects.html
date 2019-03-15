@@ -10,16 +10,17 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Countdown</th>
+                    <th>End Date</th>
                     <th>Budget</th>
                     <th>Expense</th>
                 </tr>
             </thead>
             <tr ng-repeat="project in projects" ng-click="openProject(project)">
                 <td>{{project.projectName}}</td>
-                <td>{{project.projectCountDown}}</td>
-                <td>{{project.projectBudget}}</td>
-                <td>{{project.projectExpense}}</td>
+                <td>{{project.projectEndDate | date}}</td>
+                <td>{{project.projectBudget | currency:"$":0}}</td>
+                <td></td>
+                <!-- <td>{{project.projectExpense}}</td> -->
             </tr>
         </table>
         <p style="margin-top: 1000px;">scroll test</p>

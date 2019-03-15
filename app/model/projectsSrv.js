@@ -3,46 +3,40 @@ app.factory("projectsSrv", function ($http, $q, $log) {
   var projects = [];
 
   // Project constructor
-  function Project(projectIdOrObject, projectName, projectCountDown, projectBudget, projectExpense) {
+  function Project(parseProject) {
+    this.projectId = parseProject.get("objectId");
+    this.projectName = parseProject.get("projectName");
+    this.projectBudget = parseProject.get("projectBudget");
+    this.projectEndDate = parseProject.get("projectEndDate");
+  }
 
-    if (typeof projectIdOrObject === "object") {
-      this.projectId = projectIdOrObject.projectId;
-      this.projectName = projectIdOrObject.projectName;
-      this.projectCountDown = projectIdOrObject.projectCountDown;
-      this.projectBudget = projectIdOrObject.projectBudget;
-      this.projectExpense = projectIdOrObject.projectExpense;
-    } else {
-      this.projectId = projectIdOrObject;
-      this.projectName = projectName;
-      this.projectCountDown = projectCountDown;
-      this.projectBudget = projectBudget;
-      this.projectExpense = projectExpense;
+    // Getting Project data from DB:
+    function getProjects() {
+      var async = $q.defer();
+    // var activeUserId = userSrv.getActiveUser().id;
+  
+      var projects = [];
+  
+      const ProjectParse = Parse.Object.extend('Project');
+      const query = new Parse.Query(ProjectParse);
+      // query.equalTo("userId", Parse.Project.current());
+      query.find().then(function (results) {
+  
+        for (var i = 0; i < results.length; i++) {
+          projects.push(new Project(results[i]));
+        }
+  
+        async.resolve(projects);
+  
+      }, function (error) {
+        $log.error('Error while fetching Recipe', error);
+        async.reject(error);
+      });
+  
+      return async.promise;
     }
-  }
-
-  // Car.prototype.kmPerYear = function() {
-  //   var currentYear = new Date().getFullYear();
-  //   return this.km / (currentYear - this.year + 1);
-  // }
 
 
-  function getProjects() {
-    var async = $q.defer();
-
-    $http.get("assets/data/projects.json").then(function (res) {
-      for (var i = 0; i < res.data.length; i++) {
-        projects.push(new Project(res.data[i]));
-      }
-      async.resolve(projects);
-    }, function (err) {
-
-      console.error(err);
-      async.reject(err);
-    });
-
-
-    return async.promise;
-  }
 
   // Adding new project:
   function newProject(projectName) {
@@ -81,10 +75,10 @@ app.factory("projectsSrv", function ($http, $q, $log) {
 
         // You can use the "get" method to get the value of an attribute
         // Ex: response.get("<ATTRIBUTE_NAME>")
-        
+
         console.log('Updated ', response);
       }, (error) => {
-        
+
         console.error('Error while updating ', error);
       });
     });
@@ -116,12 +110,15 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     return async.promise;
   }
 
+
+
+
   return {
     projects: projects,
     getProjects: getProjects,
     newProject: newProject,
     projectBudget: projectBudget,
-    updateProjectName: updateProjectName
+    updateProjectName: updateProjectName,
   }
 
 });

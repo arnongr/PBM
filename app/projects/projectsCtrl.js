@@ -1,6 +1,6 @@
 app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, projectViewSrv) {
 
-  // Loading all projects:
+  // Getting all Projects from DB:
   $scope.projects = [];
   projectsSrv.getProjects().then(function (projects) {
     $scope.projects = projects;
@@ -9,22 +9,19 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
   })
 
   // Adding new project to DB:
-    
-    // $scope.projectName;
-    var projectName = "New Project";
 
-    $scope.newProject = function() {
-      // call service newProject
-      projectsSrv.newProject(projectName).then(function() {  // ORIGINAL: projectsSrv.newProject($scope.projectName).then(function() {
-      }, function(err) {
-          $log.error(err);
-      })
-    };
+  // $scope.projectName;
+  var projectName = "New Project";
 
-  // Loading 'New Project' page:
-  // $scope.newProject = function () {
-  //   $location.path("projectView/");
-  // }
+  $scope.newProject = function () {
+    // call service newProject
+    projectsSrv.newProject(projectName).then(function () {  // ORIGINAL: projectsSrv.newProject($scope.projectName).then(function() {
+    }, function (err) {
+      $log.error(err);
+    })
+  };
+
+
 
   //Loading selected project:
   $scope.openProject = function (project) {
@@ -44,6 +41,11 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
     }
 
   }
+
+
+
+
+
 })
 
 
