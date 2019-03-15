@@ -8,18 +8,24 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
     $log.error(err);
   })
 
-  // Adding new project to DB:
-
-  // $scope.projectName;
-  var projectName = "New Project";
-
-  $scope.newProject = function () {
-    // call service newProject
-    projectsSrv.newProject(projectName).then(function () {  // ORIGINAL: projectsSrv.newProject($scope.projectName).then(function() {
-    }, function (err) {
-      $log.error(err);
+  // Creating new project:
+  $scope.createProject = function() {
+    projectsSrv.createProject($scope.projectName, $scope.projectBudget).then(function() {
+        location.reload();
+    }, function(err) {
+        $log.error(err);
     })
-  };
+};
+
+
+  // var projectName = "New Project";
+
+  // $scope.newProject = function () {
+  //   projectsSrv.newProject(projectName).then(function () {  // ORIGINAL: projectsSrv.newProject($scope.projectName).then(function() {
+  //   }, function (err) {
+  //     $log.error(err);
+  //   })
+  // };
 
 
 
