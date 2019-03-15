@@ -7,13 +7,12 @@
     <a class="my-float-right" style="text-decoration: none;" href="#!/projectView" ng-click="newProject()">+ New
         Project</a>
 
-    <form>
+    <form name="projectForm">
         <div class="form-row align-items-center">
             <div class="col-auto">
-                <input type="text" class="form-control mb-2" id="inlineFormInput" ng-model="projectName"
-                    placeholder="+ New Project">
+                <input name="createProject" type="text" class="form-control mb-2" id="inlineFormInput" ng-model="projectName" ng-blur="createProject()" placeholder="+ New Project on blur">
             </div>
-            <div class="col-auto">
+            <!-- <div class="col-auto">
                 <div class="input-group mb-2">
                     <input type="number" class="form-control" id="inlineFormInputGroup" ng-model="projectBudget"
                         placeholder=" + Project Budget">
@@ -22,7 +21,7 @@
 
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary mb-2" ng-click="createProject()">Add</button>
-            </div>
+            </div> -->
         </div>
     </form>
 
@@ -39,10 +38,10 @@
             <tr>
                 <form>
                     <td>
-                        <input name="createProject" ng-model="project.projectName"
+                        <!-- <input name="createProject" ng-model="project.projectName"
                             ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control"
-                            type="text" placeholder="+ Project Name">
-                    </td>
+                            type="text" placeholder="+ Project Name h">
+                    </td> -->
                 </form>
             </tr>
             <tr ng-repeat="project in projects" ng-click="openProject(project)">

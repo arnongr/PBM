@@ -8,15 +8,27 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
     $log.error(err);
   })
 
-  // Creating new project:
-  $scope.createProject = function() {
-    projectsSrv.createProject($scope.projectName, $scope.projectBudget).then(function() {
-        location.reload();
-    }, function(err) {
-        $log.error(err);
+  // Creating new project (this works good):
+  $scope.createProject = function () {
+    projectsSrv.createProject($scope.projectName).then(function () {
+      location.reload();
+    }, function (err) {
+      $log.error(err);
     })
-};
+  };
 
+  // Creating new project on blur (not working):
+  // $scope.projectName = {projectName};
+  // $scope.cancle = function (e) {
+  //   if (e.keyCode === 27) {
+  //     $scope.createProject.projectName.$rollbackViewValue();
+  //     projectsSrv.createProject($scope.projectName).then(function () {
+  //       location.reload();
+  //     }, function (err) {
+  //       $log.error(err);
+  //     })
+  //   }
+  // };
 
   // var projectName = "New Project";
 

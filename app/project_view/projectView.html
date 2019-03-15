@@ -7,7 +7,7 @@
 
     <div>
         <form name="projectForm">
-            <input name="projectName" ng-model="projectName" ng-model-options="{ updateOn: 'blur' }"
+            <input name="newProjectName" ng-model="projectName" ng-model-options="{ updateOn: 'blur' }"
                 ng-keyup="cancel($event)" class="form-control" type="text" placeholder="+ Add new Project name">
             <input type="text" class="form-control" ng-model="projectName" placeholder="Add new">
             <button ng-click="updateProjectName()" type="submit" class="btn btn-info">Add</button>

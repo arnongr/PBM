@@ -9,24 +9,25 @@ app.controller("projectViewCtrl", function ($scope, $location, $log, projectView
     $log.error(err);
   })
 
-  $scope.item = { itemName: 'Description', data: 'Data' };
+  // $scope.item = { itemName: 'Description', data: 'Data' };
 
-  $scope.cancel = function(e) {
-    if (e.keyCode === 27) {
-      $scope.newLine.itemName.$rollbackViewValue();
-    }
-  };
+  // $scope.cancel = function(e) {
+  //   if (e.keyCode === 27) {
+  //     $scope.newLine.itemName.$rollbackViewValue();
+  //   }
+  // };
 
   // Updating projectName:
   // $scope.projectName = "test";
 
-  $scope.cancel = function(e) {
-    if (e.keyCode === 27) {
-      $scope.userForm.projectName.$rollbackViewValue();
-    }
-  };
+  // $scope.cancel = function(e) {
+  //   if (e.keyCode === 27) {
+  //     $scope.userForm.projectName.$rollbackViewValue();
+  //   }
+  // };
 
 
+  // Updating projectName:
   $scope.projectName;
   $scope.updateProjectName = function() {
         // call service projectsSrv
