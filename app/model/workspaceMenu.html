@@ -7,15 +7,15 @@
 <div class="myProjectFloat">
     <project></project>
 </div>
-<div class="myWorkSpaceMenu">
+<div class="myWorkSpaceMenu mySideMenu">
+    <div class="my-border" style="padding-top: 100px;"></div>
     <div>
-        <ul class="mySideMenu">
-            <li class="my-border">
-                <a href="#!/projects">Projects</a>
-            </li>
-            <!-- <li>
-                <a ng-click="newProject" href="#!/projectView">+ New project</a>
-            </li> -->
-        </ul>
+        <a href="#!/projects">All Projects</a>
+    </div>
+    <div>
+        <a ng-click="newProject" href="#!/projectView">+ New project</a>
+    </div>
+    <div ng-repeat="project in projects">
+        <a href="#">{{project.projectName}}</a>
     </div>
 </div>

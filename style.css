@@ -60,13 +60,18 @@ nav li:hover, a:hover, span:hover {
     height: 100vh;
 }
 .mySideMenu  {
-    padding: 100px 0 0 50px;
+    box-sizing: border-box; 
+    text-indent: 40px;
+    line-height: 170%;
     list-style-type: none;
     position: fixed;
     left: 0;
     top: 0;
     z-index: 1;
-
+}
+.mySideMenu div a {
+    text-decoration: none;
+    color: black;
 }
 
 .my-list-style ,il  {
@@ -75,16 +80,16 @@ nav li:hover, a:hover, span:hover {
     padding-top: 10px;
 }
 .my-border  {
-    border-top-style: solid;
-    border-top-color: #E0E0E0;
-    border-top-width: 1px;    
+    border-bottom-style: solid;
+    border-bottom-color: #E0E0E0;
+    border-bottom-width: 1px;    
 }
-ul.mySideMenu > li > a {
+/* ul.mySideMenu > li > a {
     text-decoration: none;
     color: black;
-    font-size: 120%;
-
+    font-size: 120%; */
 }
+
 .clearfix::after {
     content: "";
     clear: both;
