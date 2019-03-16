@@ -62,7 +62,9 @@ app.factory("projectsSrv", function ($http, $q, $log) {
 
     return async.promise;
   }
+
   
+
 
   // Updating Project Name:
   function updateProjectName(projectName) {

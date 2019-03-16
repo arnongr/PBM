@@ -17,29 +17,10 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
     })
   };
 
-  // Creating new project on blur (not working):
-  // $scope.projectName = {projectName};
-  // $scope.cancle = function (e) {
-  //   if (e.keyCode === 27) {
-  //     $scope.createProject.projectName.$rollbackViewValue();
-  //     projectsSrv.createProject($scope.projectName).then(function () {
-  //       location.reload();
-  //     }, function (err) {
-  //       $log.error(err);
-  //     })
-  //   }
-  // };
-
-  // var projectName = "New Project";
-
-  // $scope.newProject = function () {
-  //   projectsSrv.newProject(projectName).then(function () {  // ORIGINAL: projectsSrv.newProject($scope.projectName).then(function() {
-  //   }, function (err) {
-  //     $log.error(err);
-  //   })
-  // };
-
-
+// Creating new project with modal:
+$scope.createNewProjectModal = function ()  {
+   $("#createNewProjectModal").modal("show");
+}
 
   //Loading selected project:
   $scope.openProject = function (project) {
