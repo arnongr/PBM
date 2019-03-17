@@ -150,29 +150,33 @@ nav li:hover, a:hover, span:hover {
       background-color: rgb(240, 240, 240);
       border-radius: 0 !important;
       border-style: none;
-      border-bottom: 1px solid rgb(202, 202, 202) !important;
+      /* border-bottom: 1px solid rgb(202, 202, 202) !important; */
   }
   .myItems-table td  {
     font-size: 90%;
-    background-color: rgb(240, 240, 240);
-    border-radius: 0 !important;
-    border-style: none;
-    border-bottom: 1px solid rgb(202, 202, 202) !important;
+    background-color: #f0f0f0;
+    border-bottom: 2px solid white ;
+    /* border-right: 1px solid white ; */
 }
+[contenteditable="true"]:focus {
+    background-color: white;
+}
+
   .myAddNewRow input{
       background-color: white;
   }
   
   /* Removing borders from Items table  */
   .myItems-table  th   {
-    border-style: none !important;
+    border: 2px solid white !important;
+    /* border-style: none !important; */
     font-weight: normal !important;
     color: dodgerblue;
   }
-  .myItems-table  td  {
+  /* .myItems-table  td  {
     border-style: none !important;
     padding: 0 0.05em 0.2em 0;
-  }
+  } */
   .my-float-right {
       float: right;
   }

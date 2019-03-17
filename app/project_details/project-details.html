@@ -25,7 +25,7 @@
     </div> -->
 
     <div class="myItems-table">
-        <table class="table">
+        <table class="table" style="margin-bottom: 0;">
             <thead>
                 <tr>
                     <th>Item</th>
@@ -36,42 +36,27 @@
                 </tr>
             </thead>
             <tr ng-repeat="item in items" class="my-placeholder">
-                <td contenteditable="true">
-                        {{item.itemName}}
+                <td contenteditable="true" spellcheck="false">
+                    {{item.itemName}}
                 </td>
-                <!-- <td>
-                    <input class="form-control " type="text" placeholder="{{item.itemName}}">
-                </td> -->
-                <td>
-                    <input class="form-control" type="text" placeholder="{{item.itemOwner}}"
-                        style="text-align: center;">
+                <td contenteditable="true" style="text-align: center;" spellcheck="false">
+                    {{item.itemOwner}}
                 </td>
-                <td>
-                    <input class="form-control" type="select" placeholder="{{item.itemCategory}}">
+                <td contenteditable="true" spellcheck="false">
+                    {{item.itemCategory}}
                 </td>
-                <td>
-                    <input class="form-control" type="number" placeholder="{{item.itemExpense | currency:'$':0}}">
+                <td contenteditable="true" spellcheck="false">
+                    {{item.itemExpense | currency:'$':0}}
                 </td>
                 <td></td>
             </tr>
             <tr class="myAddNewRow">
-                <form name="newLine">
-                    <td>
-                        <input name="createItem" type="text" class="form-control mb-2" id="inlineFormInput" ng-model="itemName" ng-blur="createItem()"
-                        placeholder="+ New Item on blur">
-                    </td>
-                    <td>
-                        <input class="form-control" type="text">
-                    </td>
-                    <td>
-                        <input class="form-control" type="text">
-                    </td>
-                    <td>
-                        <input class="form-control" type="text">
-                    </td>
-                    <td></td>
-                </form>
-            </tr>
         </table>
+
     </div>
+    <form name="newLine">
+        <input name="createItem" type="text" class="form-control mb-2" id="inlineFormInput"
+            style="border-radius: 0 !important; border: 1px solid #f0f0f0;   font-size: 90%;" ng-model="itemName"
+            ng-blur="createItem()" placeholder="+ Add new Item">
+    </form>
 </div>
