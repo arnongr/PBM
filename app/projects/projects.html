@@ -4,13 +4,12 @@
 
 <div class="myInnerPagePosition container">
     <h3 style="display: inline;">Projects</h3>
-    <a class="my-float-right" style="text-decoration: none;" href="#!/projectView" ng-click="newProject()">+ New
-        Project</a>
 
     <form name="projectForm">
         <div class="form-row align-items-center">
             <div class="col-auto">
-                <input name="createProject" type="text" class="form-control mb-2" id="inlineFormInput" ng-model="projectName" ng-blur="createProject()" placeholder="+ New Project on blur">
+                <input name="createProject" type="text" class="form-control mb-2" id="inlineFormInput" ng-model="projectName" ng-blur="createProject()"
+                    placeholder="+ New Project on blur">
             </div>
             <!-- <div class="col-auto">
                 <div class="input-group mb-2">
@@ -30,9 +29,10 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>End Date</th>
                     <th>Budget</th>
                     <th>Expense</th>
+                    <th>End Date</th>
+                    <th></th>
                 </tr>
             </thead>
             <tr>
@@ -45,14 +45,32 @@
                 </form>
             </tr>
             <tr ng-repeat="project in projects" ng-click="openProject(project)">
-                <td style="border-style: none !important;"></td>
                 <td>{{project.projectName}}</td>
-                <td>{{project.projectEndDate | date}}</td>
                 <td>{{project.projectBudget | currency:"$":0}}</td>
-                <td></td>
-                <!-- <td>{{project.projectExpense}}</td> -->
+                <td>{{project.projectExpense | currency:"$":0}}</td>
+                <td>{{project.projectEndDate | date}}</td>
+                <td style="width: 40px;">
+                    <div>
+                        <button type="button" class="close btn hidden" value="Remove" ng-click="deleteProjectModal(project)">&times;</button>
+                    </div>
+                </td>
             </tr>
         </table>
+        <form class="modal" id="deleteModal" name="deletetModal">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content text-center">
+                    <div style="padding: 10px;">
+                        <div>
+                            <p>Delete {{selectedProject}} ?</p>
+                        </div>
+                        <button ng-click="deleteProject(project)" ng-model="project" value="Reset form" type="button" class="btn btn-outline-info myButtonStyle"
+                            data-dismiss="modal" style="width: 100px; margin: 10px;">Yes</button>
+                        <button ng-model="parseProject" value="Reset form" type="button" class="btn btn-outline-warning myButtonStyle"
+                            data-dismiss="modal" style="width: 100px; margin: 10px;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
         <p style="margin-top: 1000px;">scroll test</p>
     </div>
 </div>

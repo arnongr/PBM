@@ -1,7 +1,7 @@
 
 app.directive("workspaceMenu", function() {
     return {
-      templateUrl: "app/model/workspaceMenu.html",
+      templateUrl: "app/workspaceMenu/workspaceMenu.html",
       restrict: "E"
     }
   })

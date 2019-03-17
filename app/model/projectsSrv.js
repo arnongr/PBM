@@ -4,46 +4,48 @@ app.factory("projectsSrv", function ($http, $q, $log) {
 
   // Project constructor
   function Project(parseProject) {
+    this.projectId = parseProject.get("objectId");
     this.projectName = parseProject.get("projectName");
     this.projectBudget = parseProject.get("projectBudget");
     this.projectEndDate = parseProject.get("projectEndDate");
+    this.parseProject = parseProject;
   }
 
-    // Getting Project data from DB:
-    function getProjects() {
-      var async = $q.defer();
+  // Getting Project data from DB:
+  function getProjects() {
+    var async = $q.defer();
     // var activeUserId = userSrv.getActiveUser().id;
-  
-      var projects = [];
-  
-      const ProjectParse = Parse.Object.extend('Project');
-      const query = new Parse.Query(ProjectParse);
-      // query.equalTo("userId", Parse.Project.current());
-      query.find().then(function (results) {
-  
-        for (var i = 0; i < results.length; i++) {
-          projects.push(new Project(results[i]));
-        }
-  
-        async.resolve(projects);
-  
-      }, function (error) {
-        $log.error('Error while fetching Recipe', error);
-        async.reject(error);
-      });
-  
-      return async.promise;
-    }
 
+    var projects = [];
+
+    const ProjectParse = Parse.Object.extend('Project');
+    const query = new Parse.Query(ProjectParse);
+    // query.equalTo("userId", Parse.Project.current());
+    query.find().then(function (results) {
+
+      for (var i = 0; i < results.length; i++) {
+        projects.push(new Project(results[i]));
+      }
+
+      async.resolve(projects);
+
+    }, function (error) {
+      $log.error('Error while fetching Project', error);
+      async.reject(error);
+    });
+
+    return async.promise;
+  }
 
 
   // Creating new project:
-  function createProject(projectName, projectBudget, projectEndDate) {
+  function createProject(projectId, projectName, projectBudget, projectEndDate) {
     var async = $q.defer();
 
     const ProjectParse = Parse.Object.extend('Project');
     const newProject = new ProjectParse();
 
+    newProject.set('projectName', projectId);
     newProject.set('projectName', projectName);
     newProject.set('projectBudget', projectBudget);
     newProject.set('projectEndDate', projectEndDate);
@@ -63,7 +65,20 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     return async.promise;
   }
 
-  
+  // Deleting project:
+  function deleteProject(parseProject) {
+    var async = $q.defer();
+    
+      parseProject.destroy().then((response) => {
+        console.log('Deleted ParseProject', response);
+        async.resolve();
+      }, (error) => {
+        console.error('Error while deleting ParseProject', error);
+        async.reject(error);
+      });
+ 
+    return async.promise;
+  }
 
 
   // Updating Project Name:
@@ -123,6 +138,7 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     createProject: createProject,
     projectBudget: projectBudget,
     updateProjectName: updateProjectName,
+    deleteProject: deleteProject
   }
 
 });
