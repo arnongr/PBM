@@ -1,30 +1,31 @@
 
-app.controller("projectViewCtrl", function ($scope, $location, $log, projectViewSrv, projectsSrv) {
+app.controller("projectDetailsCtrl", function ($scope, $location, $log, projectDetailsSrv, projectsSrv) {
+
+  // Getting all Projects from DB (is also in projectsCtrl.js):
+  $scope.projects = [];
+  projectsSrv.getProjects().then(function (projects) {
+    $scope.projects = projects;
+  }, function (err) {
+    $log.error(err);
+  })
 
   // Loading the items
   $scope.items = [];
-  projectViewSrv.getItems().then(function(items) {
+  projectDetailsSrv.getItems().then(function(items) {
     $scope.items = items;
   }, function(err) {
     $log.error(err);
   })
 
-  // $scope.item = { itemName: 'Description', data: 'Data' };
-
-  // $scope.cancel = function(e) {
-  //   if (e.keyCode === 27) {
-  //     $scope.newLine.itemName.$rollbackViewValue();
-  //   }
-  // };
-
-  // Updating projectName:
-  // $scope.projectName = "test";
-
-  // $scope.cancel = function(e) {
-  //   if (e.keyCode === 27) {
-  //     $scope.userForm.projectName.$rollbackViewValue();
-  //   }
-  // };
+  // Creating new item:
+  $scope.createItem = function () {
+    projectDetailsSrv.createItem($scope.itemName).then(function (newItem) {
+      $scope.items.push(newItem);
+    }, function (err) {
+      $log.error(err);
+    })
+    $scope.itemName = "";
+  };
 
 
   // Updating projectName:

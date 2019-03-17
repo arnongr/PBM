@@ -1,6 +1,6 @@
-app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, projectViewSrv) {
+app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, projectDetailsSrv) {
 
-  // Getting all Projects from DB:
+  // Getting all Projects from DB (is also in projectDetailsCtrl.js):
   $scope.projects = [];
   projectsSrv.getProjects().then(function (projects) {
     $scope.projects = projects;
@@ -35,7 +35,7 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
 
   //Deleting project:
   $scope.deleteProject = function (project) {
-    projectsSrv.deleteProject(parseProject).then(function () {
+    projectsSrv.deleteProject(project).then(function () {
       // remove line
       // var index = $scope.projects.indexOf(project);
       // $scope.array.splice(index, 1);
@@ -49,8 +49,8 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
   //Loading selected project:
   $scope.openProject = function (project) {
     $scope.items = [];
-    projectViewSrv.items = [];
-    projectViewSrv.getItems().then(function (items) {
+    projectDetailsSrv.items = [];
+    projectDetailsSrv.getItems().then(function (items) {
       $scope.items = items;
     }, function (err) {
       $log.error(err);

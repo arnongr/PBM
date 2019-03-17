@@ -4,7 +4,7 @@ app.factory("projectsSrv", function ($http, $q, $log) {
 
   // Project constructor
   function Project(parseProject) {
-    this.projectId = parseProject.get("objectId");
+    // this.projectId = parseProject.get("objectId");
     this.projectName = parseProject.get("projectName");
     this.projectBudget = parseProject.get("projectBudget");
     this.projectEndDate = parseProject.get("projectEndDate");
@@ -39,13 +39,13 @@ app.factory("projectsSrv", function ($http, $q, $log) {
 
 
   // Creating new project:
-  function createProject(projectId, projectName, projectBudget, projectEndDate) {
+  function createProject(projectName, projectBudget, projectEndDate) {
     var async = $q.defer();
 
     const ProjectParse = Parse.Object.extend('Project');
     const newProject = new ProjectParse();
 
-    newProject.set('projectName', projectId);
+    // newProject.set('projectName', projectId);
     newProject.set('projectName', projectName);
     newProject.set('projectBudget', projectBudget);
     newProject.set('projectEndDate', projectEndDate);
@@ -66,17 +66,18 @@ app.factory("projectsSrv", function ($http, $q, $log) {
   }
 
   // Deleting project:
-  function deleteProject(parseProject) {
+  function deleteProject() {
     var async = $q.defer();
     
-      parseProject.destroy().then((response) => {
-        console.log('Deleted ParseProject', response);
-        async.resolve();
-      }, (error) => {
-        console.error('Error while deleting ParseProject', error);
-        async.reject(error);
-      });
- 
+
+    parseProject.destroy().then((response) => {
+      console.log('Deleted ParseProject', response);
+      async.resolve();
+    }, (error) => {
+      console.error('Error while deleting ParseProject', error);
+      async.reject(error);
+    });
+
     return async.promise;
   }
 

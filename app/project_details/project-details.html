@@ -35,10 +35,13 @@
                     <th></th>
                 </tr>
             </thead>
-            <tr ng-repeat="item in items">
-                <td>
-                    <input class="form-control" type="text" placeholder="{{item.itemName}}">
+            <tr ng-repeat="item in items" class="my-placeholder">
+                <td contenteditable="true">
+                        {{item.itemName}}
                 </td>
+                <!-- <td>
+                    <input class="form-control " type="text" placeholder="{{item.itemName}}">
+                </td> -->
                 <td>
                     <input class="form-control" type="text" placeholder="{{item.itemOwner}}"
                         style="text-align: center;">
@@ -47,15 +50,15 @@
                     <input class="form-control" type="select" placeholder="{{item.itemCategory}}">
                 </td>
                 <td>
-                    <input class="form-control" type="number" placeholder="{{item.itemExpense}}">
+                    <input class="form-control" type="number" placeholder="{{item.itemExpense | currency:'$':0}}">
                 </td>
                 <td></td>
             </tr>
             <tr class="myAddNewRow">
                 <form name="newLine">
                     <td>
-                        <input name="newLine" ng-model="item.itemName" ng-model-options="{ updateOn: 'blur' }"
-                            ng-keyup="cancel($event)" class="form-control" type="text" placeholder="+ Add new Item">
+                        <input name="createItem" type="text" class="form-control mb-2" id="inlineFormInput" ng-model="itemName" ng-blur="createItem()"
+                        placeholder="+ New Item on blur">
                     </td>
                     <td>
                         <input class="form-control" type="text">
