@@ -38,19 +38,27 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
 
   $scope.deleteProject = function (project) {
     projectsSrv.deleteProject(project).then(function () {
-      // reloading page:
-      location.reload();
+      //Removing row from DOM:
+      var index = -1;
+      var comArr = eval($scope.projects);
+      for (var i = 0; i < comArr.length; i++) {
+        if (comArr[i].name === name) {
+          index = i;
+          break;
+        }
+      }
+      $scope.projects.splice(index, 1);
     }, function (err) {
       $log.error(err);
     })
   }
 
 
-  //Loading selected project:
-  $scope.openProject = function (project) {
-    $location.path("projectDetails/");
+  // Loading selected project:
+  // $scope.openProject = function (project) {
+  //   $location.path("projectDetails/");
 
-  }
+  // }
 
 
 

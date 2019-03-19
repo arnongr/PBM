@@ -40,14 +40,13 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
 
 
   // Creating new item:
-  function createItem(itemId, itemName, itemOwner, itemCategory, itemExpense) {
+  function createItem(itemName, itemOwner, itemCategory, itemExpense) {
     var async = $q.defer();
     var itemId = items.length + 1;
 
     const ItemParse = Parse.Object.extend('Item');
     const newItem = new ItemParse();
 
-    newItem.set('itemId', itemId);
     newItem.set('itemName', itemName);
     newItem.set('itemOwner', itemOwner);
     newItem.set('itemCategory', itemCategory);
@@ -64,24 +63,45 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
         $log.error('Error while creating Item: ', error);
         async.reject(error);
       }
-          );
+    );
 
     return async.promise;
   }
-    // Deleting item:
-    function deleteItem(item) {
-      var async = $q.defer();
-      
-      item.parseItem.destroy().then((response) => {
-        console.log('Deleted parseItem', response);
-        async.resolve();
-      }, (error) => {
-        console.error('Error while deleting parseItem', error);
-        async.reject(error);
+
+  // Updating value in item:
+  function updateItem(item) {
+    const Item = Parse.Object.extend('Item');
+    const query = new Parse.Query(Item);
+    // here you put the objectId that you want to update
+    query.get('xKue915KBG').then((object) => {
+      object.set('itemName', itemName);
+      object.set('itemOwner', itemOwner);
+      object.set('itemCategory', itemCategory);
+      object.set('itemExpense', itemExpense);
+      // object.set('itemId', 1);
+      object.save().then((response) => {
+
+        console.log('Updated Item', response);
+
+        console.error('Error while updating Item', error);
       });
-  
-      return async.promise;
-    }
+    });
+  }
+
+  // Deleting item:
+  function deleteItem(item) {
+    var async = $q.defer();
+
+    item.parseItem.destroy().then((response) => {
+      console.log('Deleted parseItem', response);
+      async.resolve();
+    }, (error) => {
+      console.error('Error while deleting parseItem', error);
+      async.reject(error);
+    });
+
+    return async.promise;
+  }
 
   return {
     items: items,

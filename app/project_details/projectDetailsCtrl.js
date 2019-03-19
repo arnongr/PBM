@@ -34,12 +34,21 @@ app.controller("projectDetailsCtrl", function ($scope, $location, $log, projectD
   //Deleting item:
   $scope.deleteItem = function (item) {
     projectDetailsSrv.deleteItem(item).then(function () {
-      // reloading page:
-      location.reload();
+      //Removing row from DOM:
+      var index = -1;
+      var comArr = eval($scope.items);
+      for (var i = 0; i < comArr.length; i++) {
+        if (comArr[i].name === name) {
+          index = i;
+          break;
+        }
+      }
+      $scope.items.splice(index, 1);
     }, function (err) {
       $log.error(err);
     })
   }
+  
     // Modal for deleting item:
     $scope.deleteItemModal = function (item) {
       $scope.selectedItem = item.itemName;
