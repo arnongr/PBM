@@ -13,7 +13,8 @@ app.controller("projectDetailsCtrl", function ($scope, $location, $log, projectD
   $scope.items = [];
   projectDetailsSrv.getItems().then(function(items) {
     $scope.items = items;
-    $log.log(items);
+    $log.log(items.length);
+    // $log.log(itemId);
 
   }, function(err) {
     $log.error(err);

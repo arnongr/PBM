@@ -4,7 +4,7 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
 
   // Item constructor
   function Item(parseItem) {
-    // this.projectId = parseProject.get("objectId");
+
     this.itemName = parseItem.get("itemName");
     this.itemOwner = parseItem.get("itemOwner");
     this.itemCategory = parseItem.get("itemCategory");
@@ -39,13 +39,14 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
   }
 
   // Creating new item:
-  function createItem(itemName, itemOwner, itemCategory, itemExpense) {
+  function createItem(itemId, itemName, itemOwner, itemCategory, itemExpense) {
     var async = $q.defer();
+    var itemId = items.length;
 
     const ItemParse = Parse.Object.extend('Item');
     const newItem = new ItemParse();
 
-    // newProject.set('projectName', projectId);
+    newItem.set('itemId', itemId);
     newItem.set('itemName', itemName);
     newItem.set('itemOwner', itemOwner);
     newItem.set('itemCategory', itemCategory);
@@ -56,12 +57,13 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
         $log.info('Item created', result);
         var newItem = new Item(result);
         async.resolve(newItem);
+        return itemId;
       },
       function (error) {
         $log.error('Error while creating Item: ', error);
         async.reject(error);
       }
-    );
+          );
 
     return async.promise;
   }
@@ -70,6 +72,7 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
 
   return {
     items: items,
+    // itemId: itemId,
     getItems: getItems,
     createItem: createItem
   }
