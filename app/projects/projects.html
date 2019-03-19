@@ -5,13 +5,13 @@
 <div class="myInnerPagePosition container">
     <h3 style="display: inline;">Projects</h3>
 
-    <form name="projectForm">
+    <!-- <form name="projectForm">
         <div class="form-row align-items-center">
             <div class="col-auto">
                 <input name="createProject" type="text" class="form-control mb-2" id="inlineFormInput" ng-model="projectName" ng-blur="createProject()"
                     placeholder="+ New Project on blur">
             </div>
-            <!-- <div class="col-auto">
+            <div class="col-auto">
                 <div class="input-group mb-2">
                     <input type="number" class="form-control" id="inlineFormInputGroup" ng-model="projectBudget"
                         placeholder=" + Project Budget">
@@ -20,9 +20,9 @@
 
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary mb-2" ng-click="createProject()">Add</button>
-            </div> -->
+            </div>
         </div>
-    </form>
+    </form> -->
 
     <div class="myProjects-table" style="margin-top: 40px;">
         <table class="table table-hover">
@@ -36,14 +36,14 @@
                 </tr>
             </thead>
             <tr>
-                <form>
+                <!-- <form>
                     <td>
-                        <!-- <input name="createProject" ng-model="project.projectName"
+                        <input name="createProject" ng-model="project.projectName"
                             ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control"
                             type="text" placeholder="+ Project Name h">
-                    </td> -->
+                    </td>
                 </form>
-            </tr>
+            </tr> -->
             <tr ng-repeat="project in projects" ng-click="openProject(project)">
                 <td>{{project.projectName}}</td>
                 <td>{{project.projectBudget | currency:"$":0}}</td>
@@ -63,7 +63,7 @@
                         <div>
                             <p>Delete {{selectedProject}} ?</p>
                         </div>
-                        <button ng-click="deleteProject(project)" ng-model="project" value="Reset form" type="button" class="btn btn-outline-info myButtonStyle"
+                        <button ng-click="deleteProject(project)" value="Reset form" type="button" class="btn btn-outline-info myButtonStyle"
                             data-dismiss="modal" style="width: 100px; margin: 10px;">Yes</button>
                         <button ng-model="parseProject" value="Reset form" type="button" class="btn btn-outline-warning myButtonStyle"
                             data-dismiss="modal" style="width: 100px; margin: 10px;">Cancel</button>

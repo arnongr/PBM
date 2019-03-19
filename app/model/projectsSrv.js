@@ -4,7 +4,6 @@ app.factory("projectsSrv", function ($http, $q, $log) {
 
   // Project constructor
   function Project(parseProject) {
-    // this.projectId = parseProject.get("objectId");
     this.projectName = parseProject.get("projectName");
     this.projectBudget = parseProject.get("projectBudget");
     this.projectEndDate = parseProject.get("projectEndDate");
@@ -37,6 +36,24 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     return async.promise;
   }
 
+    //Loading selected project:
+    // function openProject(project) {
+    //   $scope.items = [];
+    //   projectDetailsSrv.items = [];
+    //   projectDetailsSrv.getItems().then(function (items) {
+    //     $scope.items = items;
+    //   }, function (err) {
+    //     $log.error(err);
+    //   })
+  
+    //   for (var i = 0; i < $scope.items.length; i++) {
+    //     if (items[i][key] === project.projectId) {
+    //       push.items[i];
+    //     }
+        
+    //   }
+  
+    // }
 
   // Creating new project:
   function createProject(projectName, projectBudget, projectEndDate) {
@@ -66,11 +83,10 @@ app.factory("projectsSrv", function ($http, $q, $log) {
   }
 
   // Deleting project:
-  function deleteProject() {
+  function deleteProject(project) {
     var async = $q.defer();
     
-
-    parseProject.destroy().then((response) => {
+    project.parseProject.destroy().then((response) => {
       console.log('Deleted ParseProject', response);
       async.resolve();
     }, (error) => {
@@ -136,6 +152,7 @@ app.factory("projectsSrv", function ($http, $q, $log) {
   return {
     projects: projects,
     getProjects: getProjects,
+    // openPro  ject: openProject,
     createProject: createProject,
     projectBudget: projectBudget,
     updateProjectName: updateProjectName,

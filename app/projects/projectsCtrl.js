@@ -30,16 +30,16 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
   // Modal for deleting project:
   $scope.deleteProjectModal = function (project) {
     $scope.selectedProject = project.projectName;
+    $scope.project = project;
     $("#deleteModal").modal("show");
   }
 
   //Deleting project:
+
   $scope.deleteProject = function (project) {
     projectsSrv.deleteProject(project).then(function () {
-      // remove line
-      // var index = $scope.projects.indexOf(project);
-      // $scope.array.splice(index, 1);
-
+      // reloading page:
+      location.reload();
     }, function (err) {
       $log.error(err);
     })
@@ -48,24 +48,9 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
 
   //Loading selected project:
   $scope.openProject = function (project) {
-    $scope.items = [];
-    projectDetailsSrv.items = [];
-    projectDetailsSrv.getItems().then(function (items) {
-      $scope.items = items;
-    }, function (err) {
-      $log.error(err);
-    })
-
-    for (var i = 0; i < $scope.items.length; i++) {
-      if (items[i][key] === project.projectId) {
-        push.items[i];
-      }
-      $location.path("projectView/" + $scope.items[i]);
-    }
+    $location.path("projectDetails/");
 
   }
-
-
 
 
 

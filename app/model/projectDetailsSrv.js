@@ -38,10 +38,11 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
     return async.promise;
   }
 
+
   // Creating new item:
   function createItem(itemId, itemName, itemOwner, itemCategory, itemExpense) {
     var async = $q.defer();
-    var itemId = items.length;
+    var itemId = items.length + 1;
 
     const ItemParse = Parse.Object.extend('Item');
     const newItem = new ItemParse();
@@ -67,14 +68,27 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
 
     return async.promise;
   }
-
-
+    // Deleting item:
+    function deleteItem(item) {
+      var async = $q.defer();
+      
+      item.parseItem.destroy().then((response) => {
+        console.log('Deleted parseItem', response);
+        async.resolve();
+      }, (error) => {
+        console.error('Error while deleting parseItem', error);
+        async.reject(error);
+      });
+  
+      return async.promise;
+    }
 
   return {
     items: items,
     // itemId: itemId,
     getItems: getItems,
-    createItem: createItem
+    createItem: createItem,
+    deleteItem: deleteItem
   }
 
 });
