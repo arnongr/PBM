@@ -12,32 +12,11 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
     this.parseItem = parseItem;
   }
 
-  // Items constructor
-  // function Item(itemIdOrObject, projectId, itemName, itemOwner, itemCategory, itemExpense) {
 
-  //   if (typeof itemIdOrObject === "object") {
-  //     this.itemId = itemIdOrObject.itemId;
-  //     this.projectId = itemIdOrObject.projectId;
-  //     this.itemName = itemIdOrObject.itemName;
-  //     this.itemOwner = itemIdOrObject.itemOwner;
-  //     this.itemCategory = itemIdOrObject.itemCategory;
-  //     this.itemExpense = itemIdOrObject.itemExpense;
-  //   } else {
-  //     this.itemId = itemIdOrObject;
-  //     this.projectId = projectId;
-  //     this.itemName = itemName;
-  //     this.itemOwner = itemOwner;
-  //     this.itemCategory = itemCategory;
-  //     this.itemExpense = itemExpense;
-  //   }
-  // }
-
-
-  // Getting Item data from DB:
+  // Getting Items from DB:
   function getItems() {
     var async = $q.defer();
     // var activeUserId = userSrv.getActiveUser().id;
-
     var items = [];
 
     const ItemtParse = Parse.Object.extend('Item');
@@ -52,7 +31,7 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
       async.resolve(items);
 
     }, function (error) {
-      $log.error('Error while fetching Project', error);
+      $log.error('Error while fetching Item', error);
       async.reject(error);
     });
 

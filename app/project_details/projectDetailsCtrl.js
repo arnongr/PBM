@@ -9,12 +9,15 @@ app.controller("projectDetailsCtrl", function ($scope, $location, $log, projectD
     $log.error(err);
   })
 
-  // Loading the items
+  // Loading Items:
   $scope.items = [];
   projectDetailsSrv.getItems().then(function(items) {
     $scope.items = items;
+    $log.log(items);
+
   }, function(err) {
     $log.error(err);
+    
   })
 
   // Creating new item:
