@@ -14,7 +14,7 @@ nav li  {
 .dropdownStyle  {
     cursor: pointer;
 }
-nav li:hover, a:hover, span:hover {
+nav  li:hover  a:hover, span:hover {
     color: #007bff !important;
 }
 
@@ -204,3 +204,19 @@ tr:hover .hidden {
 .title:empty:not(:focus):before {
     content: attr(data-placeholder)
   }
+.header-cell-style  {
+    border: 1px solid #f0f0f0;
+    padding: 5px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 130px;
+    margin-right: 20px;    
+}
+.my-bold    {
+    font-weight: 420;
+}
+.my-span    {
+    display: inline-block;
+    width: 70px;
+    margin-bottom: 15px;
+}

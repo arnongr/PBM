@@ -8,6 +8,9 @@
     <project></project>
 </div>
 <div class="myWorkSpaceMenu mySideMenu">
+    <a  href="#!/">
+        <img style="margin-top: 10px;" class="logo" src="/assets/images/logo-gray.png" alt="">
+    </a>
     <div class="my-border" style="padding-top: 100px;"></div>
     <div>
         <a href="#!/projects">All Projects</a>
@@ -16,7 +19,7 @@
         <button type="button" ng-click="createProjectModal()" class="btn btn-outline-primary" style="border-style: none !important; border-radius: 25px;">+ New</a>
     </div>
     <div ng-repeat="project in projects" ng-click="openProject(project)">
-        <span href="#">{{project.projectName}}</span>
+        <span class="dropdownStyle" href="#">{{project.projectName}}</span>
     </div>
 </div>
 

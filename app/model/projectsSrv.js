@@ -6,6 +6,7 @@ app.factory("projectsSrv", function ($http, $q, $log) {
   function Project(parseProject) {
     this.projectName = parseProject.get("projectName");
     this.projectBudget = parseProject.get("projectBudget");
+    this.projectExpense = parseProject.get("projectExpense");
     this.projectEndDate = parseProject.get("projectEndDate");
     this.parseProject = parseProject;
   }
@@ -56,7 +57,7 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     // }
 
   // Creating new project:
-  function createProject(projectName, projectBudget, projectEndDate) {
+  function createProject(projectName, projectBudget, projectExpense, projectEndDate) {
     var async = $q.defer();
 
     const ProjectParse = Parse.Object.extend('Project');
@@ -65,6 +66,7 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     // newProject.set('projectName', projectId);
     newProject.set('projectName', projectName);
     newProject.set('projectBudget', projectBudget);
+    newProject.set('projectExpense', projectExpense);
     newProject.set('projectEndDate', projectEndDate);
 
     newProject.save().then(

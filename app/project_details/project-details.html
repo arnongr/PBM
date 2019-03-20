@@ -3,26 +3,30 @@
 
 
 <div class="myInnerPagePosition">
-    <h3 style="margin-bottom: 50px;">{{project.projectName}}</h3>
+    <h3 style="margin-bottom: 30px;">{{project.projectName}}</h3>
+    <div class="container my-bold">
+        <div style="width: 230px;">
+            <div>
+                <span class="my-span" style="color: black !important;">Budget:</span>
+                <span class="header-cell-style form-control" contenteditable="true" spellcheck="false">
+                    {{project.projectBudget | currency:'$':0 }}</span>
+            </div>
+            <div>
+                <span class="my-span" style="color: black !important;">Expense:</span>
+                <span class="header-cell-style form-control" contenteditable="true" spellcheck="false">
+                    {{project.projectExpense | currency:"$":0}}</span>
+            </div>
+            <div>
+                <span class="my-span" style="color: black !important;">End date:</span>
+                <span class="header-cell-style form-control" contenteditable="true" spellcheck="false">
+                    {{project.projectEndDate | date}}</span>
+            </div>
+        </div>
 
-    <!-- <div>
-        <form name="projectForm">
-            <input name="newProjectName" ng-model="projectName" ng-model-options="{ updateOn: 'blur' }"
-                ng-keyup="cancel($event)" class="form-control" type="text" placeholder="+ Add new Project name">
-            <input type="text" class="form-control" ng-model="projectName" placeholder="Add new">
-            <button ng-click="updateProjectName()" type="submit" class="btn btn-info">Add</button>
-        </form>
-        <pre>projectName = <span ng-bind="projectName"></span></pre>
-    </div> -->
+    </div>
 
-    <!-- <div>
-        <form name="editProjectBudget">
-            <input name="editProjectBudget" ng-model="projectBudget" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control"
-                type="text" placeholder="+ Budget">
-        </form>
-    </div> -->
 
-    <div class="myItems-table">
+    <div class="myItems-table" style="margin-top: 30px;">
         <table class="table" style="margin-bottom: 0;">
             <thead>
                 <tr>
@@ -48,7 +52,8 @@
                 </td>
                 <td style="width: 40px;">
                     <div>
-                        <button type="button" class="close btn hidden" value="Remove" ng-click="deleteItemModal(item)">&times;</button>
+                        <button type="button" class="close btn hidden" value="Remove"
+                            ng-click="deleteItemModal(item)">&times;</button>
                     </div>
                 </td>
             </tr>
@@ -61,10 +66,12 @@
                         <div>
                             <p>Delete {{selectedItem}} ?</p>
                         </div>
-                        <button ng-click="deleteItem(item)" value="Reset form" type="button" class="btn btn-outline-info myButtonStyle"
-                            data-dismiss="modal" style="width: 100px; margin: 10px;">Yes</button>
-                        <button ng-model="parseItem" value="Reset form" type="button" class="btn btn-outline-warning myButtonStyle"
-                            data-dismiss="modal" style="width: 100px; margin: 10px;">Cancel</button>
+                        <button ng-click="deleteItem(item)" value="Reset form" type="button"
+                            class="btn btn-outline-info myButtonStyle" data-dismiss="modal"
+                            style="width: 100px; margin: 10px;">Yes</button>
+                        <button ng-model="parseItem" value="Reset form" type="button"
+                            class="btn btn-outline-warning myButtonStyle" data-dismiss="modal"
+                            style="width: 100px; margin: 10px;">Cancel</button>
                     </div>
                 </div>
             </div>
