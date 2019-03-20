@@ -15,8 +15,8 @@
     <div style="text-align:right; padding-right: 5px;">
         <button type="button" ng-click="createProjectModal()" class="btn btn-outline-primary" style="border-style: none !important; border-radius: 25px;">+ New</a>
     </div>
-    <div ng-repeat="project in projects">
-        <a href="#">{{project.projectName}}</a>
+    <div ng-repeat="project in projects" ng-click="openProject(project)">
+        <span href="#">{{project.projectName}}</span>
     </div>
 </div>
 

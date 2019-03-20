@@ -1,4 +1,4 @@
-app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, projectDetailsSrv) {
+app.controller("projectsCtrl", function ($scope, $log, $location, $routeParams, projectsSrv) {
 
   // Getting all Projects from DB (is also in projectDetailsCtrl.js):
   $scope.projects = [];
@@ -35,7 +35,6 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
   }
 
   //Deleting project:
-
   $scope.deleteProject = function (project) {
     projectsSrv.deleteProject(project).then(function () {
       //Removing row from DOM:
@@ -53,15 +52,13 @@ app.controller("projectsCtrl", function ($scope, $log, $location, projectsSrv, p
     })
   }
 
-
-  // Loading selected project:
-  // $scope.openProject = function (project) {
-  //   $location.path("projectDetails/");
-
-  // }
-
-
-
-})
-
-
+  //Loading project by id (also in projectDetailsCtrl):
+  projectsSrv.getProjectById($routeParams.projectIndex).then(function (project) {
+    $scope.project = project;
+  })
+  // Loading selected project (also in projectDetailsCtrl):
+  $scope.openProject = function (project) {
+    $location.path("projectDetails/" + $scope.projects.indexOf(project));
+    $scope.project;
+  }
+});

@@ -82,6 +82,19 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     return async.promise;
   }
 
+  // Get project by id:
+  function getProjectById(projectName) {
+    var async = $q.defer();
+    
+    getProjects().then(function(projects) {
+      async.resolve(projects[projectName]); 
+    }, function(err) {
+      async.reject(err);
+    });
+    
+    return async.promise;
+  } 
+
   // Deleting project:
   function deleteProject(project) {
     var async = $q.defer();
@@ -152,8 +165,8 @@ app.factory("projectsSrv", function ($http, $q, $log) {
   return {
     projects: projects,
     getProjects: getProjects,
-    // openPro  ject: openProject,
     createProject: createProject,
+    getProjectById: getProjectById,
     projectBudget: projectBudget,
     updateProjectName: updateProjectName,
     deleteProject: deleteProject

@@ -1,5 +1,5 @@
 
-app.controller("projectDetailsCtrl", function ($scope, $location, $log, projectDetailsSrv, projectsSrv) {
+app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, $log, projectDetailsSrv, projectsSrv) {
 
   // Getting all Projects from DB (is also in projectsCtrl.js):
   $scope.projects = [];
@@ -8,6 +8,17 @@ app.controller("projectDetailsCtrl", function ($scope, $location, $log, projectD
   }, function (err) {
     $log.error(err);
   })
+
+  //Loading project by id (also in projectsCtrl):
+  projectsSrv.getProjectById($routeParams.projectIndex).then(function (project) {
+    $scope.project = project;
+})
+  // Loading selected project (also in projectsCtrl):
+  $scope.openProject = function (project) {
+    $location.path("projectDetails/" + $scope.projects.indexOf(project));
+    $scope.project;
+  }
+
 
   // Loading Items:
   $scope.items = [];

@@ -16,7 +16,7 @@ app.config(function ($routeProvider) {
     }).when("/projects", {
         templateUrl: "app/projects/projects.html",
         controller: "projectsCtrl"
-    }).when("/projectDetails", {
+    }).when("/projectDetails/:projectIndex", {
         templateUrl: "app/project_details/project-details.html",
         controller: "projectDetailsCtrl"
 
