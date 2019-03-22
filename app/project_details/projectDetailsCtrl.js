@@ -42,6 +42,12 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
     $scope.itemName = "";
   };
 
+  // Updating itemName:
+  
+  $scope.updateItem = function (item, updateItemName) {
+    projectDetailsSrv.updateItem(item, updateItemName);
+  }
+
   //Deleting item:
   $scope.deleteItem = function (item) {
     projectDetailsSrv.deleteItem(item).then(function () {

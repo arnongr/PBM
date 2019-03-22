@@ -42,7 +42,7 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
   // Creating new item:
   function createItem(itemName, itemOwner, itemCategory, itemExpense) {
     var async = $q.defer();
-    var itemId = items.length + 1;
+    // var itemId = items.length + 1;
 
     const ItemParse = Parse.Object.extend('Item');
     const newItem = new ItemParse();
@@ -57,36 +57,33 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
         $log.info('Item created', result);
         var newItem = new Item(result);
         async.resolve(newItem);
-        return itemId;
+        // return itemId;
       },
       function (error) {
         $log.error('Error while creating Item: ', error);
         async.reject(error);
       }
     );
-
     return async.promise;
   }
 
-  // Updating value in item:
-  function updateItem(item) {
-    const Item = Parse.Object.extend('Item');
-    const query = new Parse.Query(Item);
-    // here you put the objectId that you want to update
-    query.get('xKue915KBG').then((object) => {
-      object.set('itemName', itemName);
-      object.set('itemOwner', itemOwner);
-      object.set('itemCategory', itemCategory);
-      object.set('itemExpense', itemExpense);
-      // object.set('itemId', 1);
-      object.save().then((response) => {
+  // Updating itemName:
+  function updateItem(item, updateItemName) {
+    var async = $q.defer();
 
-        console.log('Updated Item', response);
+      item.parseItem.set("itemName", updateItemName);
 
-        console.error('Error while updating Item', error);
-      });
-    });
-  }
+      // console.log('Updated Item', response);
+      async.resolve(updateItemName);
+      item.parseItem.save();
+     (error) => {
+      console.error('Error while updating Item', error);
+      async.reject(error);
+    };
+    
+    return async.promise;
+  };
+
 
   // Deleting item:
   function deleteItem(item) {
@@ -105,10 +102,10 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
 
   return {
     items: items,
-    // itemId: itemId,
     getItems: getItems,
     createItem: createItem,
-    deleteItem: deleteItem
+    deleteItem: deleteItem,
+    updateItem: updateItem
   }
 
 });

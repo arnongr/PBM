@@ -38,24 +38,32 @@
                 </tr>
             </thead>
             <tr ng-repeat="item in items" class="my-placeholder">
-                <td contenteditable="true" spellcheck="false">
-                    {{item.itemName}}
-                </td>
-                <td contenteditable="true" style="text-align: center;" spellcheck="false">
-                    {{item.itemOwner}}
-                </td>
-                <td contenteditable="true" spellcheck="false">
-                    {{item.itemCategory}}
-                </td>
-                <td contenteditable="true" spellcheck="false">
-                    {{item.itemExpense | currency:'$':0}}
-                </td>
-                <td style="width: 40px;">
-                    <div>
-                        <button type="button" class="close btn hidden" value="Remove"
-                            ng-click="deleteItemModal(item)">&times;</button>
-                    </div>
-                </td>
+                <form>
+                    <td>
+                        <form>
+                            <input type="text" ng-model="updateItemName" ng-blur="updateItem(item , updateItemName)"
+                                placeholder="{{item.itemName}}">
+                        </form>
+                    </td>
+                    <!-- <td contenteditable="true" spellcheck="false" ng-model="itemName" ng-blur="updateItem(item)">
+                        {{item.itemName}}
+                    </td> -->
+
+                    <td contenteditable="true" style="text-align: center;" spellcheck="false">
+                        {{item.itemOwner}}
+                    </td>
+                    <td contenteditable="true" spellcheck="false">
+                        {{item.itemCategory}}
+                    </td>
+                    <td contenteditable="true" spellcheck="false">
+                        {{item.itemExpense | currency:'$':0}}
+                    </td>
+                    <td style="width: 40px;">
+                        <div>
+                            <button type="button" class="close btn hidden" value="Remove"
+                                ng-click="deleteItemModal(item)">&times;</button>
+                        </div>
+                    </td>
             </tr>
             <tr class="myAddNewRow">
         </table>
