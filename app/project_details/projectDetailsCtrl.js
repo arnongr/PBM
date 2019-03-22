@@ -12,7 +12,7 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
   //Loading project by id (also in projectsCtrl):
   projectsSrv.getProjectById($routeParams.projectIndex).then(function (project) {
     $scope.project = project;
-})
+  })
   // Loading selected project (also in projectsCtrl):
   $scope.openProject = function (project) {
     $location.path("projectDetails/" + $scope.projects.indexOf(project));
@@ -42,11 +42,23 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
     $scope.itemName = "";
   };
 
-  // Updating itemName:
-  
-  $scope.updateItem = function (item, updateItemName) {
-    projectDetailsSrv.updateItem(item, updateItemName);
+  // Updating itemName:  
+  $scope.updateItemName = function (item, itemNameNew) {
+    projectDetailsSrv.updateItemName(item, itemNameNew);
   }
+  // Updating itemOwner:  
+  $scope.updateItemOwner = function (item, itemOwnerNew) {
+    projectDetailsSrv.updateItemOwner(item, itemOwnerNew);
+  }
+  // Updating itemCategory:
+  $scope.updateItemCategory = function (item, itemCategoryNew) {
+    projectDetailsSrv.updateItemCategory(item, itemCategoryNew);
+  }
+    // Updating itemExpense:
+    $scope.updateItemExpense = function (item, itemExpenseNew) {
+      projectDetailsSrv.updateItemExpense(item, itemExpenseNew);
+    }
+
 
   //Deleting item:
   $scope.deleteItem = function (item) {
@@ -65,13 +77,13 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
       $log.error(err);
     })
   }
-  
-    // Modal for deleting item:
-    $scope.deleteItemModal = function (item) {
-      $scope.selectedItem = item.itemName;
-      $scope.item = item;
-      $("#deleteModalItem").modal("show");
-    }
+
+  // Modal for deleting item:
+  $scope.deleteItemModal = function (item) {
+    $scope.selectedItem = item.itemName;
+    $scope.item = item;
+    $("#deleteModalItem").modal("show");
+  }
 
 
   // Updating projectName:

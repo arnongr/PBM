@@ -68,21 +68,60 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
   }
 
   // Updating itemName:
-  function updateItem(item, updateItemName) {
+  function updateItemName(item, itemNameNew) {
     var async = $q.defer();
-
-      item.parseItem.set("itemName", updateItemName);
-
-      // console.log('Updated Item', response);
-      async.resolve(updateItemName);
-      item.parseItem.save();
-     (error) => {
+    item.parseItem.set("itemName", itemNameNew);
+    console.log('Updated Item');
+    async.resolve(itemNameNew);
+    item.parseItem.save();
+    (error) => {
       console.error('Error while updating Item', error);
       async.reject(error);
     };
-    
     return async.promise;
   };
+
+  // Updating itemOwner:
+  function updateItemOwner(item, itemOwnerNew) {
+    var async = $q.defer();
+    item.parseItem.set("itemOwner", itemOwnerNew);
+    console.log('Updated Item');
+    async.resolve(itemOwnerNew);
+    item.parseItem.save();
+    (error) => {
+      console.error('Error while updating Item', error);
+      async.reject(error);
+    };
+    return async.promise;
+  };
+
+  // Updating itemCategory:
+  function updateItemCategory(item, itemCategoryNew) {
+    var async = $q.defer();
+    item.parseItem.set("itemCategory", itemCategoryNew);
+    console.log('Updated Item');
+    async.resolve(itemCategoryNew);
+    item.parseItem.save();
+    (error) => {
+      console.error('Error while updating Item', error);
+      async.reject(error);
+    };
+    return async.promise;
+  };
+
+    // Updating itemExpense:
+    function updateItemExpense(item, itemExpenseNew) {
+      var async = $q.defer();
+      item.parseItem.set("itemExpense", itemExpenseNew);
+      console.log('Updated Item');
+      async.resolve(itemExpenseNew);
+      item.parseItem.save();
+      (error) => {
+        console.error('Error while updating Item', error);
+        async.reject(error);
+      };
+      return async.promise;
+    };
 
 
   // Deleting item:
@@ -105,7 +144,10 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
     getItems: getItems,
     createItem: createItem,
     deleteItem: deleteItem,
-    updateItem: updateItem
+    updateItemName: updateItemName,
+    updateItemOwner: updateItemOwner,
+    updateItemCategory: updateItemCategory,
+    updateItemExpense: updateItemExpense
   }
 
 });
