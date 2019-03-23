@@ -109,19 +109,19 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
     return async.promise;
   };
 
-    // Updating itemExpense:
-    function updateItemExpense(item, itemExpenseNew) {
-      var async = $q.defer();
-      item.parseItem.set("itemExpense", itemExpenseNew);
-      console.log('Updated Item');
-      async.resolve(itemExpenseNew);
-      item.parseItem.save();
-      (error) => {
-        console.error('Error while updating Item', error);
-        async.reject(error);
-      };
-      return async.promise;
+  // Updating itemExpense:
+  function updateItemExpense(item, itemExpenseNew) {
+    var async = $q.defer();
+    item.parseItem.set("itemExpense", itemExpenseNew);
+    console.log('Updated Item');
+    async.resolve(itemExpenseNew);
+    item.parseItem.save();
+    (error) => {
+      console.error('Error while updating Item', error);
+      async.reject(error);
     };
+    return async.promise;
+  };
 
 
   // Deleting item:
@@ -138,6 +138,8 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
 
     return async.promise;
   }
+
+
 
   return {
     items: items,

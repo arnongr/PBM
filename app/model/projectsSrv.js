@@ -137,29 +137,19 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     return async.promise;
   }
 
-  // Adding budget
-  function projectBudget(projectBudget) {
+  // Updating projectBudget:
+  function updateProjectBudget(project, projectBudgetNew) {
     var async = $q.defer();
-
-    const BudgetParse = Parse.Object.extend('Budget');
-    const projectBudget = new BudgetParse();
-
-    projectBudget.set('projectBudget', projectBudget);
-
-    projectBudget.save().then(
-      function (result) {
-        $log.info('Budget created', result);
-        var newProject = new Budget(result);
-        async.resolve(projectBudget);
-      },
-      function (error) {
-        $log.error('Error while creating Project: ', error);
-        async.reject(error);
-      }
-    );
-
+    project.parseProject.set("projectBudget", projectBudgetNew);
+    console.log('Updated Project');
+    async.resolve(projectBudgetNew);
+    project.parseProject.save();
+    (error) => {
+      console.error('Error while updating Project', error);
+      async.reject(error);
+    };
     return async.promise;
-  }
+  };
 
 
 
@@ -169,7 +159,7 @@ app.factory("projectsSrv", function ($http, $q, $log) {
     getProjects: getProjects,
     createProject: createProject,
     getProjectById: getProjectById,
-    projectBudget: projectBudget,
+    updateProjectBudget: updateProjectBudget,
     updateProjectName: updateProjectName,
     deleteProject: deleteProject
   }

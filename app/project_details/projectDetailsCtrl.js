@@ -54,10 +54,12 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
   $scope.updateItemCategory = function (item, itemCategoryNew) {
     projectDetailsSrv.updateItemCategory(item, itemCategoryNew);
   }
-    // Updating itemExpense:
-    $scope.updateItemExpense = function (item, itemExpenseNew) {
-      projectDetailsSrv.updateItemExpense(item, itemExpenseNew);
-    }
+  // Updating itemExpense:
+  $scope.updateItemExpense = function (item, itemExpenseNew) {
+    $scope.item = item;
+    projectDetailsSrv.updateItemExpense(item, itemExpenseNew);
+    // $scope.item = "";
+  }
 
 
   //Deleting item:
@@ -97,16 +99,19 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
   };
 
 
-  //Adding budget
-  $scope.projectBudget;
+  //Updating projectBudget:
+  $scope.updateProjectBudget = function (project, projectBudgetNew) {
+    projectsSrv.updateProjectBudget(project, projectBudgetNew);
+  }
 
-  $scope.editProjectBudget = function () {
-    // call service projectBudget
-    projectsSrv.editProjectBudget($scope.projectBudget).then(function () {
-    }, function (err) {
-      $log.error(err);
-    })
-  };
+  // $scope.projectBudget;
+
+  // $scope.editProjectBudget = function () {
+  //   projectsSrv.editProjectBudget($scope.projectBudget).then(function () {
+  //   }, function (err) {
+  //     $log.error(err);
+  //   })
+  // };
 
 
 })

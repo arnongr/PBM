@@ -8,8 +8,13 @@
         <div style="width: 230px;">
             <div>
                 <span class="my-span" style="color: black !important;">Budget:</span>
-                <span class="header-cell-style form-control" contenteditable="true" spellcheck="false">
-                    {{project.projectBudget | currency:'$':0 }}</span>
+                <span>
+                    <input class="header-cell-style form-control" type="number" style="color: black !important;"
+                        ng-model="projectBudgetNew" ng-blur="updateProjectBudget(project, projectBudgetNew)"
+                        placeholder="{{project.projectBudget | currency:'$':0}}">
+                    <!-- <span class="header-cell-style form-control" contenteditable="true" spellcheck="false">
+                    {{project.projectBudget | currency:'$':0 }}</span> -->
+                </span>
             </div>
             <div>
                 <span class="my-span" style="color: black !important;">Expense:</span>
