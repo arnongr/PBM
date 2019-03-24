@@ -25,7 +25,6 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
   projectDetailsSrv.getItems().then(function (items) {
     $scope.items = items;
     $log.log(items.length);
-    // $log.log(itemId);
 
   }, function (err) {
     $log.error(err);
@@ -58,11 +57,11 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
   $scope.updateItemExpense = function (item, itemExpenseNew) {
     $scope.item = item;
     projectDetailsSrv.updateItemExpense(item, itemExpenseNew);
-    // $scope.item = "";
+    location.reload();
   }
 
   // Summing of all itemExpense:
-  $itemExpenseTotal = projectDetailsSrv.itemExpenseTotal;
+  $scope.itemExpenseTotal = projectDetailsSrv.itemExpenseTotal;
 
 
   //Deleting item:
