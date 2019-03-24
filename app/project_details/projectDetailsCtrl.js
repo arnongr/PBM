@@ -104,6 +104,11 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
     projectsSrv.updateProjectBudget(project, projectBudgetNew);
   }
 
+  // Summing total expense of items:
+  totalItemExpense = function() {
+    projectDetailsSrv.totalItemExpense();
+  }
+
   // $scope.projectBudget;
 
   // $scope.editProjectBudget = function () {
