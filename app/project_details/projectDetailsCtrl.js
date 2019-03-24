@@ -26,10 +26,17 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
     $scope.items = items;
     $log.log(items.length);
 
+    var itemExpenseTotal = items.reduce(function (prev, cur) {
+      return prev + cur.itemExpense;
+    }, 0);
+    console.log('Total Expense:', itemExpenseTotal);
+    $scope.itemExpenseTotal = itemExpenseTotal;
+
   }, function (err) {
     $log.error(err);
 
   })
+  
 
   // Creating new item:
   $scope.createItem = function () {
@@ -59,9 +66,6 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
     projectDetailsSrv.updateItemExpense(item, itemExpenseNew);
     location.reload();
   }
-
-  // Summing of all itemExpense:
-  $scope.itemExpenseTotal = projectDetailsSrv.itemExpenseTotal;
 
 
   //Deleting item:
