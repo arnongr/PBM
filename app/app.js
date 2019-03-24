@@ -1,4 +1,4 @@
-var app = angular.module("PBM", ["ngRoute"]);
+var app = angular.module("PBM", ["ngRoute", "chart.js"]);
 
 app.config(function ($routeProvider) {
 
