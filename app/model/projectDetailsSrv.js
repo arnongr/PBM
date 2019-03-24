@@ -29,12 +29,18 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
       }
 
       async.resolve(items);
+      // Summing itemExpense:
+      var itemExpenseTotal = items.reduce(function (prev, cur) {
+        return prev + cur.itemExpense;
+      }, 0);
+
+      console.log('Total Expense:', itemExpenseTotal);
 
     }, function (error) {
       $log.error('Error while fetching Item', error);
       async.reject(error);
     });
-
+    return projectDetailsSrv;
     return async.promise;
   }
 
@@ -143,6 +149,7 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
 
   return {
     items: items,
+    itemExpenseTotal: itemExpenseTotal,
     getItems: getItems,
     createItem: createItem,
     deleteItem: deleteItem,
