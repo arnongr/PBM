@@ -33,7 +33,7 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
       async.resolve(items);
       // Summing itemExpense:
       var itemExpenseTotal = items.reduce(function (prev, cur) {
-        
+        return prev + cur.itemExpense;
       }, 0);
       console.log('Total Expense:', itemExpenseTotal);
       return itemExpenseTotal;
