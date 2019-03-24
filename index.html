@@ -22,10 +22,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-route.js"></script>
 
     <!-- Back4App scripts -->
-    <script src="node_modules/parse/dist/parse.min.js"></script>
+    
+    <script 
+    var Parse = require('parse');
+    src="node_modules/parse/dist/parse.min.js"></script>
 
     <script>
-        var Parse = require('parse');
+        
         Parse.serverURL = 'https://parseapi.back4app.com'; // This is your Server URL
         Parse.initialize(
             'N2hZu65Msf46aqW25nkOpLxYPPsYpSJPYEmlEWI4', // This is your Application ID
