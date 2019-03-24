@@ -25,12 +25,18 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
   projectDetailsSrv.getItems().then(function (items) {
     $scope.items = items;
     $log.log(items.length);
-    // $log.log(itemId);
+
+    var itemExpenseTotal = items.reduce(function (prev, cur) {
+      return prev + cur.itemExpense;
+    }, 0);
+    console.log('Total Expense:', itemExpenseTotal);
+    $scope.itemExpenseTotal = itemExpenseTotal;
 
   }, function (err) {
     $log.error(err);
 
   })
+  
 
   // Creating new item:
   $scope.createItem = function () {
@@ -58,7 +64,7 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
   $scope.updateItemExpense = function (item, itemExpenseNew) {
     $scope.item = item;
     projectDetailsSrv.updateItemExpense(item, itemExpenseNew);
-    // $scope.item = "";
+    location.reload();
   }
 
 

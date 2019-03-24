@@ -18,8 +18,8 @@
             </div>
             <div>
                 <span class="my-span" style="color: black !important;">Expense:</span>
-                <span class="header-cell-style form-control" contenteditable="true" spellcheck="false">
-                    {{project.projectExpense | currency:"$":0}}</span>
+                <span class="header-cell-style form-control" spellcheck="false">
+                    {{itemExpenseTotal | currency:"$":0}}</span>
             </div>
             <div>
                 <span class="my-span" style="color: black !important;">End date:</span>
@@ -105,4 +105,7 @@
             style="border-radius: 0 !important; border: 1px solid #f0f0f0;   font-size: 90%;" ng-model="itemName"
             ng-blur="createItem()" placeholder="+ Add new Item">
     </form>
+    <div>
+        <items-pie-chart></items-pie-chart>
+    </div>
 </div>

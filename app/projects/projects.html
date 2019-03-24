@@ -30,7 +30,7 @@
                 <tr>
                     <th></th>
                     <th>Budget</th>
-                    <th>Expense</th>
+                    <th>Total Expense</th>
                     <th>End Date</th>
                     <th></th>
                 </tr>
@@ -47,7 +47,7 @@
             <tr ng-repeat="project in projects" ng-click="openProject(project)">
                 <td>{{project.projectName}}</td>
                 <td>{{project.projectBudget | currency:"$":0}}</td>
-                <td>{{project.projectExpense | currency:"$":0}}</td>
+                <td>{{itemExpenseTotal | currency:"$":0}}</td>
                 <td>{{project.projectEndDate | date}}</td>
                 <td style="width: 40px;">
                     <div>

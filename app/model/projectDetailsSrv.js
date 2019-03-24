@@ -1,6 +1,8 @@
 app.factory("projectDetailsSrv", function ($http, $q, $log) {
 
   var items = [];
+  var itemExpenseTotal = [];
+
 
   // Item constructor
   function Item(parseItem) {
@@ -15,6 +17,7 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
 
   // Getting Items from DB:
   function getItems() {
+    
     var async = $q.defer();
     // var activeUserId = userSrv.getActiveUser().id;
     var items = [];
@@ -29,13 +32,20 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
       }
 
       async.resolve(items);
+      // Summing itemExpense:
+      // var itemExpenseTotal = items.reduce(function (prev, cur) {
+      //   return prev + cur.itemExpense;
+      // }, 0);
+      // console.log('Total Expense:', itemExpenseTotal);
+
 
     }, function (error) {
       $log.error('Error while fetching Item', error);
       async.reject(error);
     });
-
+    
     return async.promise;
+
   }
 
 
@@ -57,7 +67,6 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
         $log.info('Item created', result);
         var newItem = new Item(result);
         async.resolve(newItem);
-        // return itemId;
       },
       function (error) {
         $log.error('Error while creating Item: ', error);
@@ -146,6 +155,7 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
 
   return {
     items: items,
+    itemExpenseTotal: itemExpenseTotal,
     getItems: getItems,
     createItem: createItem,
     deleteItem: deleteItem,
