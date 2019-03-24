@@ -61,6 +61,9 @@ app.controller("projectDetailsCtrl", function ($scope, $routeParams, $location, 
     // $scope.item = "";
   }
 
+  // Summing of all itemExpense:
+  $itemExpenseTotal = projectDetailsSrv.itemExpenseTotal;
+
 
   //Deleting item:
   $scope.deleteItem = function (item) {
