@@ -17,9 +17,10 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
 
   // Getting Items from DB:
   function getItems() {
+    
     var async = $q.defer();
     // var activeUserId = userSrv.getActiveUser().id;
-    // var items = [];
+    var items = [];
 
     const ItemtParse = Parse.Object.extend('Item');
     const query = new Parse.Query(ItemtParse);
@@ -42,6 +43,7 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
       $log.error('Error while fetching Item', error);
       async.reject(error);
     });
+    
     return async.promise;
 
   }
