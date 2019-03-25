@@ -3,9 +3,9 @@
 
 
 <div class="myInnerPagePosition">
-    <h3 style="margin-bottom: 30px;">{{project.projectName}}</h3>
-    <div class="container my-bold">
-        <div style="width: 230px;">
+    <div class="container my-bold row">
+        <div class="col-lg-4">
+            <h3 style="margin-bottom: 30px;">{{project.projectName}}</h3>
             <div>
                 <span class="my-span" style="color: black !important;">Budget:</span>
                 <span>
@@ -27,8 +27,13 @@
                     {{project.projectEndDate | date}}</span>
             </div>
         </div>
-
+        <div class="col-lg-8">
+            <canvas id="pie" class="chart chart-pie my-chart-position" chart-data="data" chart-labels="labels"
+                chart-options="options">
+            </canvas>
+        </div>
     </div>
+
 
 
     <div class="myItems-table" style="margin-top: 30px;">
@@ -106,6 +111,9 @@
             ng-blur="createItem()" placeholder="+ Add new Item">
     </form>
     <div>
-        <pie-ctrl></pie-ctrl>
+        <!-- <canvas id="pie" class="chart chart-pie"
+            chart-data="data" chart-labels="labels" chart-options="options">
+          </canvas> -->
+        <item-pie-chart></item-pie-chart>
     </div>
 </div>

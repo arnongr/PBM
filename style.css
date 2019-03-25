@@ -220,3 +220,14 @@ tr:hover .hidden {
     width: 70px;
     margin-bottom: 15px;
 }
+/* .my-position {
+position: absolute;
+}
+.my-chart-position  {
+    float: right;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+} */

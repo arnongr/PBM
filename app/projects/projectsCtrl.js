@@ -89,12 +89,12 @@ app.controller("projectsCtrl", function ($scope, $log, $location, $routeParams, 
   projectDetailsSrv.getItems().then(function (items) {
     
     $scope.items = items;
-    $log.log(items.length);
+    // $log.log(items.length);
     
     var itemExpenseTotal = items.reduce(function (prev, cur) {
       return prev + cur.itemExpense;
     }, 0);
-    console.log('Total Expense:', itemExpenseTotal);
+    // console.log('Total Expense:', itemExpenseTotal);
     $scope.itemExpenseTotal = itemExpenseTotal;
 
   }, function (err) {
@@ -183,5 +183,9 @@ app.controller("projectsCtrl", function ($scope, $log, $location, $routeParams, 
   //     $log.error(err);
   //   })
   // };
+
+  //Pie chart for Items:
+  $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+  $scope.data = [300, 500, 100];
 
 });
