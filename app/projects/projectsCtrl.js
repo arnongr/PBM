@@ -2,9 +2,9 @@ app.controller("projectsCtrl", function ($scope, $log, $location, $routeParams, 
 
   // location.reload();
 
-  // Getting all Projects from DB (is also in projectDetailsCtrl.js):
+  // Getting Projects from DB:
   $scope.projects = [];
-  projectsSrv.getProjects().then(function (projects) {
+  projectsSrv.getActiveUserProjects().then(function (projects) {
     $scope.projects = projects;
   }, function (err) {
     $log.error(err);
@@ -64,7 +64,7 @@ app.controller("projectsCtrl", function ($scope, $log, $location, $routeParams, 
     $scope.project;
   }
 
-//####### ITEMS ########
+  //####### ITEMS ########
   // Getting all Projects from DB (is also in projectsCtrl.js):
   // $scope.projects = [];
   // projectsSrv.getProjects().then(function (projects) {
@@ -85,12 +85,13 @@ app.controller("projectsCtrl", function ($scope, $log, $location, $routeParams, 
 
 
   // Loading Items:
-    $scope.items = [];
+  $scope.items = [];
   projectDetailsSrv.getItems().then(function (items) {
-    
+
     $scope.items = items;
+    console.log(items.itemName);
     // $log.log(items.length);
-    
+
     var itemExpenseTotal = items.reduce(function (prev, cur) {
       return prev + cur.itemExpense;
     }, 0);
@@ -101,7 +102,7 @@ app.controller("projectsCtrl", function ($scope, $log, $location, $routeParams, 
     $log.error(err);
 
   })
-  
+
 
   // Creating new item:
   $scope.createItem = function () {
@@ -137,17 +138,19 @@ app.controller("projectsCtrl", function ($scope, $log, $location, $routeParams, 
   $scope.deleteItem = function (item) {
     projectDetailsSrv.deleteItem(item).then(function () {
       //Removing row from DOM:
-      var index = -1;
-      var comArr = eval($scope.items);
-      for (var i = 0; i < comArr.length; i++) {
-        if (comArr[i].name === name) {
-          index = i;
-          break;
-        }
-      }
-      $scope.items.splice(index, 1);
-    }, function (err) {
-      $log.error(err);
+      //   var index = -1;
+      //   var comArr = eval($scope.items);
+      //   for (var i = 0; i < comArr.length; i++) {
+      //     if (comArr[i].name === name) {
+      //       index = i;
+      //       break;
+      //     }
+      //   }
+      //   $scope.items.splice(index, 1);
+      // }, function (err) {
+      //   $log.error(err);
+      // })
+      location.reload();
     })
   }
 
@@ -175,17 +178,27 @@ app.controller("projectsCtrl", function ($scope, $log, $location, $routeParams, 
     projectsSrv.updateProjectBudget(project, projectBudgetNew);
   }
 
-  // $scope.projectBudget;
 
-  // $scope.editProjectBudget = function () {
-  //   projectsSrv.editProjectBudget($scope.projectBudget).then(function () {
-  //   }, function (err) {
-  //     $log.error(err);
-  //   })
-  // };
 
   //Pie chart for Items:
+
+  // $scope.options = {
+  //   legend: {
+  //     display: true
+  //   }
+  // }
+  // for (var i = 0; i < $scope.items.length; i++) {
+  //   if ($scope.cars[i].year >= 2012) {
+  //     ++newCars;
+  //   } else {
+  //     ++oldCars;
+  //   }
+  // }
+
+  // return [newCars, oldCars];
+  // }  
   $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
   $scope.data = [300, 500, 100];
+  // $scope.labels = {itemName[]}
 
 });

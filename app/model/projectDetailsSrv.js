@@ -148,10 +148,7 @@ app.factory("projectDetailsSrv", function ($http, $q, $log) {
     return async.promise;
   }
 
-  // Summing total expense of items:
-  function totalItemExpense() {
-    
-  }
+
 
   return {
     items: items,

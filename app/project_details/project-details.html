@@ -28,13 +28,13 @@
             </div>
         </div>
         <div class="col-lg-8">
-            <canvas id="pie" class="chart chart-pie my-chart-position" chart-data="data" chart-labels="labels"
-                chart-options="options">
-            </canvas>
+            <div>
+                <canvas id="pie" class="chart chart-pie my-chart-position" chart-data="data" chart-labels="labels"
+                    chart-options="options">
+                </canvas>
+            </div>
         </div>
     </div>
-
-
 
     <div class="myItems-table" style="margin-top: 30px;">
         <table class="table" style="margin-bottom: 0;">
@@ -110,10 +110,5 @@
             style="border-radius: 0 !important; border: 1px solid #f0f0f0;   font-size: 90%;" ng-model="itemName"
             ng-blur="createItem()" placeholder="+ Add new Item">
     </form>
-    <div>
-        <!-- <canvas id="pie" class="chart chart-pie"
-            chart-data="data" chart-labels="labels" chart-options="options">
-          </canvas> -->
-        <item-pie-chart></item-pie-chart>
-    </div>
+
 </div>
